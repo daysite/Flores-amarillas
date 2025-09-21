@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flores Amarillas - 21 de Septiembre</title>
+    <title>Ramo de Flores - 21 de Septiembre</title>
     <style>
         * {
             margin: 0;
@@ -12,11 +12,11 @@
         }
         
         body {
-            background: #000;
+            background: linear-gradient(to bottom, #1a0635, #000000);
             min-height: 100vh;
             overflow: hidden;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #FFEB3B;
+            color: white;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -26,30 +26,139 @@
         }
         
         .message {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            max-width: 90%;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
             text-shadow: 0 0 10px rgba(255, 235, 59, 0.7);
             z-index: 10;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
             border-radius: 15px;
             border: 1px solid rgba(255, 235, 59, 0.3);
+            max-width: 90%;
+        }
+        
+        .bouquet {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            margin: 0 auto;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
         }
         
         .flower {
             position: absolute;
-            font-size: 0;
-            opacity: 0;
-            transition: all 3s ease-in-out;
-            filter: drop-shadow(0 0 8px rgba(255, 235, 59, 0.9));
-            z-index: 5;
+            font-size: 50px;
             color: #FFEB3B;
+            filter: drop-shadow(0 0 8px rgba(255, 235, 59, 0.9));
+            animation: float 4s ease-in-out infinite;
+            opacity: 0;
+            transform: translateY(20px);
         }
         
-        .flower.show {
-            font-size: 40px;
-            opacity: 1;
+        .flower:nth-child(1) {
+            animation-delay: 0.5s;
+            top: 120px;
+            left: 130px;
+        }
+        
+        .flower:nth-child(2) {
+            animation-delay: 1s;
+            top: 100px;
+            left: 100px;
+        }
+        
+        .flower:nth-child(3) {
+            animation-delay: 1.5s;
+            top: 90px;
+            left: 160px;
+        }
+        
+        .flower:nth-child(4) {
+            animation-delay: 2s;
+            top: 150px;
+            left: 80px;
+        }
+        
+        .flower:nth-child(5) {
+            animation-delay: 2.5s;
+            top: 160px;
+            left: 170px;
+        }
+        
+        .flower:nth-child(6) {
+            animation-delay: 3s;
+            top: 190px;
+            left: 130px;
+        }
+        
+        .flower:nth-child(7) {
+            animation-delay: 3.5s;
+            top: 80px;
+            left: 130px;
+        }
+        
+        .flower:nth-child(8) {
+            animation-delay: 4s;
+            top: 130px;
+            left: 60px;
+        }
+        
+        .flower:nth-child(9) {
+            animation-delay: 4.5s;
+            top: 140px;
+            left: 190px;
+        }
+        
+        .flower:nth-child(10) {
+            animation-delay: 5s;
+            top: 200px;
+            left: 100px;
+        }
+        
+        .flower:nth-child(11) {
+            animation-delay: 5.5s;
+            top: 210px;
+            left: 160px;
+        }
+        
+        .flower:nth-child(12) {
+            animation-delay: 6s;
+            top: 170px;
+            left: 130px;
+        }
+        
+        .stem {
+            position: absolute;
+            bottom: 0;
+            width: 8px;
+            height: 180px;
+            background: linear-gradient(to bottom, #2e7d32, #1b5e20);
+            border-radius: 4px 4px 0 0;
+            z-index: 4;
+        }
+        
+        .leaves {
+            position: absolute;
+            bottom: 80px;
+            width: 150px;
+            height: 80px;
+            background: #2e7d32;
+            border-radius: 50%;
+            z-index: 3;
+            opacity: 0.7;
+        }
+        
+        .ribbon {
+            position: absolute;
+            bottom: 70px;
+            width: 100px;
+            height: 30px;
+            background: #ff4d4d;
+            z-index: 6;
+            border-radius: 5px;
+            animation: ribbon 3s ease-in-out infinite;
         }
         
         .falling-flower {
@@ -63,10 +172,30 @@
             filter: drop-shadow(0 0 5px rgba(255, 235, 59, 0.7));
         }
         
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+                opacity: 0.9;
+            }
+        }
+        
         @keyframes fall {
             to {
                 transform: translateY(100vh) rotate(360deg);
                 opacity: 0;
+            }
+        }
+        
+        @keyframes ribbon {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(5deg);
             }
         }
         
@@ -80,45 +209,72 @@
             width: 100%;
         }
         
-        .heart {
-            color: #ff4d4d;
-            display: inline-block;
+        .dedication {
+            font-size: 2.5rem;
+            margin-top: 30px;
+            color: #FFEB3B;
+            text-shadow: 0 0 15px rgba(255, 235, 59, 0.8);
+            font-style: italic;
+            letter-spacing: 2px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
         }
         
         @media (max-width: 768px) {
+            .bouquet {
+                transform: scale(0.8);
+            }
+            
             .message {
-                font-size: 1rem;
+                font-size: 1.2rem;
+            }
+            
+            .dedication {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="message">
-        <h2>Para ti en este 21 de septiembre</h2>
-        <p>Las flores amarillas iluminan mi día,<br>como tú iluminas mi vida.</p>
+        <h2>Feliz 21 de septiembre</h2>
+        <p>Un ramo de flores amarillas para alegrar tu día</p>
     </div>
     
+    <div class="bouquet">
+        <div class="stem"></div>
+        <div class="leaves"></div>
+        <div class="ribbon"></div>
+        <div class="flower">🌼</div>
+        <div class="flower">🌼</div>
+        <div class="flower">🌻</div>
+        <div class="flower">🌼</div>
+        <div class="flower">🌻</div>
+        <div class="flower">🌼</div>
+        <div class="flower">🌼</div>
+        <div class="flower">🌻</div>
+        <div class="flower">🌼</div>
+        <div class="flower">🌻</div>
+        <div class="flower">🌼</div>
+        <div class="flower">🌻</div>
+    </div>
+    
+    <div class="dedication">Al bonito</div>
+    
     <div class="footer">
-        Hecho con <span class="heart">❤️</span> para ti
+        Hecho con ❤️ para el 21 de septiembre
     </div>
 
     <script>
-        // Configuración
-        const flowers = ['🌼', '🌻']; // Solo flores amarillas
-        const totalFlowers = 40;
-        let flowersCreated = 0;
-        let fallingInterval;
-        
-        // Crear contenedores
-        const flowerContainer = document.createElement('div');
-        flowerContainer.style.position = 'fixed';
-        flowerContainer.style.top = '0';
-        flowerContainer.style.left = '0';
-        flowerContainer.style.width = '100%';
-        flowerContainer.style.height = '100%';
-        flowerContainer.style.pointerEvents = 'none';
-        document.body.appendChild(flowerContainer);
-        
+        // Crear contenedor para flores que caen
         const fallingFlowers = document.createElement('div');
         fallingFlowers.style.position = 'fixed';
         fallingFlowers.style.top = '0';
@@ -129,52 +285,11 @@
         fallingFlowers.style.zIndex = '1';
         document.body.appendChild(fallingFlowers);
         
-        // Función para crear una flor que aparece gradualmente
-        function createFlower() {
-            const flower = document.createElement('div');
-            flower.className = 'flower';
-            
-            // Seleccionar un emoji de flor amarilla
-            flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
-            
-            // Posición aleatoria
-            const posX = Math.random() * 85 + 5;
-            const posY = Math.random() * 70 + 15;
-            
-            flower.style.left = `${posX}%`;
-            flower.style.top = `${posY}%`;
-            
-            // Tamaño aleatorio
-            const size = Math.random() * 30 + 30;
-            flower.style.fontSize = `${size}px`;
-            
-            // Rotación inicial aleatoria
-            const rotation = Math.random() * 360;
-            flower.style.transform = `rotate(${rotation}deg)`;
-            
-            flowerContainer.appendChild(flower);
-            
-            // Mostrar la flor gradualmente
-            setTimeout(() => {
-                flower.classList.add('show');
-            }, 100);
-            
-            // Ocultar y eliminar la flor después de un tiempo
-            setTimeout(() => {
-                flower.classList.remove('show');
-                setTimeout(() => {
-                    if (flower.parentNode) {
-                        flower.remove();
-                    }
-                }, 3000);
-            }, 15000);
-        }
-        
         // Función para crear flores que caen
         function createFallingFlower() {
             const fallingFlower = document.createElement('div');
             fallingFlower.className = 'falling-flower';
-            fallingFlower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+            fallingFlower.innerHTML = Math.random() > 0.5 ? '🌼' : '🌻';
             
             // Posición horizontal aleatoria
             const posX = Math.random() * 100;
@@ -208,43 +323,22 @@
             }
             
             // Continuar creando flores en intervalos
-            fallingInterval = setInterval(createFallingFlower, 800);
+            setInterval(createFallingFlower, 800);
         }
         
-        // Iniciar flores que aparecen gradualmente
-        function startFlowers() {
-            // Crear flores iniciales
-            for (let i = 0; i < totalFlowers; i++) {
+        // Iniciar animaciones cuando la página cargue
+        window.addEventListener('load', () => {
+            // Hacer que las flores del ramo aparezcan gradualmente
+            const flowers = document.querySelectorAll('.flower');
+            flowers.forEach((flower, index) => {
                 setTimeout(() => {
-                    createFlower();
-                }, i * 500);
-            }
+                    flower.style.opacity = '1';
+                }, index * 200);
+            });
             
-            // Regenerar flores continuamente
-            setInterval(() => {
-                // Contar flores actuales
-                const currentFlowers = flowerContainer.childElementCount;
-                
-                // Crear nuevas flores si es necesario
-                if (currentFlowers < totalFlowers) {
-                    for (let i = 0; i < (totalFlowers - currentFlowers); i++) {
-                        setTimeout(() => {
-                            createFlower();
-                        }, i * 500);
-                    }
-                }
-            }, 5000);
-        }
-        
-        // Iniciar todas las animaciones
-        startFlowers();
-        startFallingFlowers();
-        
-        // Ajustar para dispositivos móviles
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            document.querySelector('.message').style.fontSize = '1rem';
-            document.querySelector('.message h2').style.fontSize = '1.4rem';
-        }
+            // Iniciar flores cayendo
+            startFallingFlowers();
+        });
     </script>
 </body>
 </html>
