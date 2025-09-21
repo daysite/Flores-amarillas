@@ -17,7 +17,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
             overflow: hidden;
             color: white;
         }
@@ -27,61 +27,41 @@
             position: relative;
             z-index: 20;
             padding: 20px;
+            width: 100%;
         }
         
         .title {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: #FFD700;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
             font-weight: bold;
         }
         
         .bouquet-container {
             position: relative;
-            width: 350px;
-            height: 450px;
+            width: 400px;
+            height: 500px;
             margin: 0 auto;
         }
         
         /* Tallos */
         .stem {
             position: absolute;
-            bottom: 50px;
-            width: 5px;
+            bottom: 80px;
+            width: 6px;
             height: 0;
             background: linear-gradient(to top, #2e7d32, #1b5e20);
-            border-radius: 2px;
+            border-radius: 3px;
             transform-origin: bottom center;
-            animation: growStem 1.5s forwards;
+            animation: growStem 1.2s forwards;
             opacity: 0;
             z-index: 5;
         }
         
         @keyframes growStem {
             to {
-                height: 180px;
                 opacity: 1;
-            }
-        }
-        
-        /* Hojas */
-        .leaf {
-            position: absolute;
-            width: 0;
-            height: 0;
-            background: #2e7d32;
-            border-radius: 0 50% 50% 0;
-            z-index: 6;
-            opacity: 0;
-            animation: growLeaf 1s forwards;
-        }
-        
-        @keyframes growLeaf {
-            to {
-                width: 25px;
-                height: 15px;
-                opacity: 0.8;
             }
         }
         
@@ -90,93 +70,58 @@
             position: absolute;
             font-size: 0;
             color: #FFD700;
-            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
             opacity: 0;
-            animation: growFlower 1s forwards;
+            animation: growFlower 1.2s forwards;
             z-index: 10;
             transform-origin: bottom center;
         }
         
         @keyframes growFlower {
             to {
-                font-size: 3.5rem;
+                font-size: 4rem;
                 opacity: 1;
             }
         }
         
-        /* Posiciones de tallos */
-        .stem:nth-child(1) { left: 150px; animation-delay: 0.3s; }
-        .stem:nth-child(2) { left: 130px; animation-delay: 0.6s; }
-        .stem:nth-child(3) { left: 170px; animation-delay: 0.9s; }
-        .stem:nth-child(4) { left: 110px; animation-delay: 1.2s; }
-        .stem:nth-child(5) { left: 190px; animation-delay: 1.5s; }
-        .stem:nth-child(6) { left: 90px; animation-delay: 1.8s; }
-        .stem:nth-child(7) { left: 210px; animation-delay: 2.1s; }
+        /* Posiciones y alturas de los tallos (formando ramo circular) */
+        .stem:nth-child(1), .flower:nth-child(1) { left: 170px; height: 200px; animation-delay: 0.3s; }
+        .stem:nth-child(2), .flower:nth-child(2) { left: 140px; height: 190px; animation-delay: 0.6s; }
+        .stem:nth-child(3), .flower:nth-child(3) { left: 200px; height: 195px; animation-delay: 0.9s; }
+        .stem:nth-child(4), .flower:nth-child(4) { left: 120px; height: 185px; animation-delay: 1.2s; }
+        .stem:nth-child(5), .flower:nth-child(5) { left: 220px; height: 180px; animation-delay: 1.5s; }
+        .stem:nth-child(6), .flower:nth-child(6) { left: 100px; height: 205px; animation-delay: 1.8s; }
+        .stem:nth-child(7), .flower:nth-child(7) { left: 240px; height: 175px; animation-delay: 2.1s; }
+        .stem:nth-child(8), .flower:nth-child(8) { left: 160px; height: 195px; animation-delay: 2.4s; }
+        .stem:nth-child(9), .flower:nth-child(9) { left: 180px; height: 190px; animation-delay: 2.7s; }
+        .stem:nth-child(10), .flower:nth-child(10) { left: 130px; height: 185px; animation-delay: 3.0s; }
+        .stem:nth-child(11), .flower:nth-child(11) { left: 210px; height: 200px; animation-delay: 3.3s; }
         
-        /* Alturas de los tallos */
-        .stem:nth-child(1) { height: 180px; }
-        .stem:nth-child(2) { height: 170px; }
-        .stem:nth-child(3) { height: 175px; }
-        .stem:nth-child(4) { height: 165px; }
-        .stem:nth-child(5) { height: 160px; }
-        .stem:nth-child(6) { height: 185px; }
-        .stem:nth-child(7) { height: 155px; }
+        /* Posiciones verticales de las flores */
+        .flower:nth-child(1) { bottom: 280px; }
+        .flower:nth-child(2) { bottom: 270px; }
+        .flower:nth-child(3) { bottom: 275px; }
+        .flower:nth-child(4) { bottom: 265px; }
+        .flower:nth-child(5) { bottom: 260px; }
+        .flower:nth-child(6) { bottom: 285px; }
+        .flower:nth-child(7) { bottom: 255px; }
+        .flower:nth-child(8) { bottom: 275px; }
+        .flower:nth-child(9) { bottom: 270px; }
+        .flower:nth-child(10) { bottom: 265px; }
+        .flower:nth-child(11) { bottom: 280px; }
         
-        /* Posiciones de hojas */
-        .leaf:nth-child(8) { 
-            bottom: 120px; left: 145px; transform: rotate(45deg);
-            animation-delay: 1.8s; 
-        }
-        .leaf:nth-child(9) { 
-            bottom: 100px; left: 165px; transform: rotate(-30deg);
-            animation-delay: 2.0s; 
-        }
-        .leaf:nth-child(10) { 
-            bottom: 130px; left: 125px; transform: rotate(60deg);
-            animation-delay: 2.2s; 
-        }
-        
-        /* Posiciones de flores (girasoles) */
-        .flower:nth-child(11) { 
-            bottom: 230px; left: 150px; 
-            animation-delay: 2.4s; 
-        }
-        .flower:nth-child(12) { 
-            bottom: 220px; left: 130px; 
-            animation-delay: 2.6s; 
-        }
-        .flower:nth-child(13) { 
-            bottom: 225px; left: 170px; 
-            animation-delay: 2.8s; 
-        }
-        .flower:nth-child(14) { 
-            bottom: 215px; left: 110px; 
-            animation-delay: 3.0s; 
-        }
-        .flower:nth-child(15) { 
-            bottom: 210px; left: 190px; 
-            animation-delay: 3.2s; 
-        }
-        .flower:nth-child(16) { 
-            bottom: 235px; left: 90px; 
-            animation-delay: 3.4s; 
-        }
-        .flower:nth-child(17) { 
-            bottom: 205px; left: 210px; 
-            animation-delay: 3.6s; 
-        }
-        
+        /* Envoltura del ramo */
         .wrapping {
             position: absolute;
-            bottom: 30px;
+            bottom: 60px;
             left: 50%;
             transform: translateX(-50%);
-            width: 150px;
-            height: 70px;
+            width: 180px;
+            height: 80px;
             background: linear-gradient(to bottom, #8BC34A, #4CAF50);
-            border-radius: 8px 8px 5px 5px;
+            border-radius: 10px 10px 6px 6px;
             z-index: 4;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
             opacity: 0;
             animation: wrapAppear 1s forwards;
             animation-delay: 4.0s;
@@ -188,23 +133,24 @@
             }
         }
         
+        /* Cinta decorativa */
         .ribbon {
             position: absolute;
-            bottom: 80px;
+            bottom: 120px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 30px;
+            width: 120px;
+            height: 35px;
             background: linear-gradient(to right, #F44336, #E91E63);
-            border-radius: 4px;
+            border-radius: 5px;
             z-index: 15;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 0.9rem;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
             opacity: 0;
             animation: ribbonAppear 1s forwards;
             animation-delay: 4.5s;
@@ -216,28 +162,7 @@
             }
         }
         
-        .dedication {
-            margin-top: 30px;
-            font-size: 1.8rem;
-            color: #FFD700;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-            opacity: 0;
-            animation: textAppear 1.5s forwards;
-            animation-delay: 5.0s;
-        }
-        
-        @keyframes textAppear {
-            to {
-                opacity: 1;
-            }
-        }
-        
-        .footer {
-            margin-top: 20px;
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
+        /* Efecto de partículas doradas */
         .particles {
             position: fixed;
             top: 0;
@@ -264,18 +189,29 @@
             }
         }
         
+        /* Texto de tiempo (simulando la imagen) */
+        .time {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .time div {
+            margin: 5px 0;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .bouquet-container {
                 transform: scale(0.8);
             }
             
-            .dedication {
-                font-size: 1.5rem;
+            .flower {
+                font-size: 3.2rem !important;
             }
         }
     </style>
@@ -287,7 +223,11 @@
         <h1 class="title">Feliz 21 de Septiembre</h1>
         
         <div class="bouquet-container">
-            <!-- Tallos -->
+            <!-- Tallos y flores -->
+            <div class="stem"></div>
+            <div class="stem"></div>
+            <div class="stem"></div>
+            <div class="stem"></div>
             <div class="stem"></div>
             <div class="stem"></div>
             <div class="stem"></div>
@@ -296,12 +236,10 @@
             <div class="stem"></div>
             <div class="stem"></div>
             
-            <!-- Hojas -->
-            <div class="leaf"></div>
-            <div class="leaf"></div>
-            <div class="leaf"></div>
-            
-            <!-- Flores - Girasoles -->
+            <div class="flower">🌻</div>
+            <div class="flower">🌻</div>
+            <div class="flower">🌻</div>
+            <div class="flower">🌻</div>
             <div class="flower">🌻</div>
             <div class="flower">🌻</div>
             <div class="flower">🌻</div>
@@ -314,16 +252,17 @@
             <div class="ribbon">Para Ti</div>
         </div>
         
-        <div class="dedication">Para ti en este día especial</div>
-        
-        <div class="footer">Hecho con ❤️ para el 21 de septiembre</div>
+        <div class="time">
+            <div>0:00</div>
+            <div>1:36</div>
+        </div>
     </div>
 
     <script>
         // Crear partículas de fondo
         function createParticles() {
             const particles = document.getElementById('particles');
-            const particleCount = 30;
+            const particleCount = 40;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
