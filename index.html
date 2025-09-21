@@ -92,6 +92,17 @@
             animation: growLeaf 1.5s forwards;
         }
         
+        .leaf.left {
+            left: -15px;
+            transform-origin: right center;
+        }
+        
+        .leaf.right {
+            right: -15px;
+            transform-origin: left center;
+            transform: scaleX(-1);
+        }
+        
         /* Animaciones */
         @keyframes growStem {
             to { height: var(--stem-height); }
@@ -109,16 +120,16 @@
             }
         }
         
-        /* Posiciones centradas y ajustadas para las flores */
-        .flower-with-stem:nth-child(1) { left: 50%; margin-left: -70px; bottom: 60px; }
-        .flower-with-stem:nth-child(2) { left: 50%; margin-left: -40px; bottom: 55px; }
-        .flower-with-stem:nth-child(3) { left: 50%; margin-left: -10px; bottom: 58px; }
-        .flower-with-stem:nth-child(4) { left: 50%; margin-left: 20px; bottom: 52px; }
+        /* Posiciones centradas y ajustadas para las flores - más agrupadas */
+        .flower-with-stem:nth-child(1) { left: 50%; margin-left: -50px; bottom: 60px; }
+        .flower-with-stem:nth-child(2) { left: 50%; margin-left: -25px; bottom: 55px; }
+        .flower-with-stem:nth-child(3) { left: 50%; margin-left: 0px; bottom: 58px; }
+        .flower-with-stem:nth-child(4) { left: 50%; margin-left: 25px; bottom: 52px; }
         .flower-with-stem:nth-child(5) { left: 50%; margin-left: 50px; bottom: 50px; }
-        .flower-with-stem:nth-child(6) { left: 50%; margin-left: -55px; bottom: 65px; }
-        .flower-with-stem:nth-child(7) { left: 50%; margin-left: 35px; bottom: 48px; }
-        .flower-with-stem:nth-child(8) { left: 50%; margin-left: -25px; bottom: 62px; }
-        .flower-with-stem:nth-child(9) { left: 50%; margin-left: 10px; bottom: 54px; }
+        .flower-with-stem:nth-child(6) { left: 50%; margin-left: -40px; bottom: 65px; }
+        .flower-with-stem:nth-child(7) { left: 50%; margin-left: 40px; bottom: 48px; }
+        .flower-with-stem:nth-child(8) { left: 50%; margin-left: -15px; bottom: 62px; }
+        .flower-with-stem:nth-child(9) { left: 50%; margin-left: 15px; bottom: 54px; }
         
         /* Alturas de los tallos */
         .flower-with-stem:nth-child(1) .stem { --stem-height: 150px; animation-delay: 0.3s; }
@@ -142,21 +153,21 @@
         .flower-with-stem:nth-child(8) .flower { animation-delay: 2.6s; }
         .flower-with-stem:nth-child(9) .flower { animation-delay: 2.9s; }
         
-        /* Posicionamiento de hojas para cada flor (4 hojas por tallo) */
+        /* Posicionamiento de hojas para cada flor (2 a cada lado) */
         .flower-with-stem .leaf:nth-child(3) { 
-            bottom: 30%; left: -10px; transform: rotate(45deg);
+            bottom: 25%; 
             animation-delay: 1.0s; 
         }
         .flower-with-stem .leaf:nth-child(4) { 
-            bottom: 60%; left: 8px; transform: rotate(-30deg);
+            bottom: 60%; 
             animation-delay: 1.5s; 
         }
         .flower-with-stem .leaf:nth-child(5) { 
-            bottom: 45%; left: -15px; transform: rotate(60deg);
+            bottom: 45%; 
             animation-delay: 2.0s; 
         }
         .flower-with-stem .leaf:nth-child(6) { 
-            bottom: 75%; left: 10px; transform: rotate(-45deg);
+            bottom: 75%; 
             animation-delay: 2.5s; 
         }
         
@@ -166,7 +177,7 @@
             bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
-            width: 220px;
+            width: 200px;
             height: 70px;
             background: linear-gradient(to bottom, #8BC34A, #4CAF50);
             border-radius: 10px 10px 6px 6px;
@@ -269,82 +280,82 @@
             <div class="flower-with-stem">
                 <div class="flower">🌻</div>
                 <div class="stem">
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
                 </div>
             </div>
             <div class="flower-with-stem">
                 <div class="flower">🌻</div>
                 <div class="stem">
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
                 </div>
             </div>
             <div class="flower-with-stem">
                 <div class="flower">🌻</div>
                 <div class="stem">
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
                 </div>
             </div>
             <div class="flower-with-stem">
                 <div class="flower">🌻</div>
                 <div class="stem">
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
                 </div>
             </div>
             <div class="flower-with-stem">
                 <div class="flower">🌻</div>
                 <div class="stem">
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
                 </div>
             </div>
             <div class="flower-with-stem">
                 <div class="flower">🌻</div>
                 <div class="stem">
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
                 </div>
             </div>
             <div class="flower-with-stem">
                 <div class="flower">🌻</div>
                 <div class="stem">
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
                 </div>
             </div>
             <div class="flower-with-stem">
                 <div class="flower">🌻</div>
                 <div class="stem">
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
                 </div>
             </div>
             <div class="flower-with-stem">
                 <div class="flower">🌻</div>
                 <div class="stem">
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
-                    <div class="leaf"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
+                    <div class="leaf left"></div>
+                    <div class="leaf right"></div>
                 </div>
             </div>
             
