@@ -458,12 +458,14 @@
             font-size: 1.8rem; /* Reducido de 2rem */
             color: #5d4037;
             margin-bottom: 5px;
+            text-align: center;
         }
         
         .letter-date {
             font-style: italic;
             color: #8d6e63;
             font-size: 0.9rem; /* Reducido ligeramente */
+            text-align: center;
         }
         
         .letter-content {
@@ -646,8 +648,7 @@
         </div>
 
         <!-- Reproductor de audio oculto pero funcional - MÚSICA ACTUALIZADA -->
-        <iframe id="audioPlayer" style="display:none;" src="https://www.youtube.com/embed/VIDEO_ID_ACTUALIZADO?autoplay=1&loop=1&playlist=VIDEO_ID_ACTUALIZADO&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <!-- Nota: Reemplaza VIDEO_ID_ACTUALIZADO con el ID real del video de YouTube de "Florecen Flores Amarillas" -->
+        <iframe id="audioPlayer" style="display:none;" src="https://www.youtube.com/embed/S7gMzYqXIZc?autoplay=1&loop=1&playlist=S7gMzYqXIZc&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 
     <!-- Carta (tamaño reducido) -->
@@ -777,11 +778,6 @@
             // Precargar partículas pero no mostrarlas hasta que se haga clic
             const particles = document.getElementById('particles');
             particles.innerHTML = '';
-            
-            // Actualizar el reproductor con la música correcta
-            // Reemplaza VIDEO_ID_REAL con el ID real del video de YouTube
-            const correctVideoId = "VIDEO_ID_REAL"; // Necesitas obtener el ID correcto
-            audioPlayer.src = `https://www.youtube.com/embed/${correctVideoId}?autoplay=1&loop=1&playlist=${correctVideoId}&controls=0`;
         });
     </script>
 </body>
