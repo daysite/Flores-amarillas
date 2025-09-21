@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz 21 de Septiembre</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <title>Ramo de Flores - 21 de Septiembre</title>
     <style>
         * {
             margin: 0;
@@ -13,236 +12,142 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: linear-gradient(to bottom, #1a1a2e, #0f3460);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Playfair Display', serif;
-            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow: hidden;
-            position: relative;
         }
         
         .container {
             text-align: center;
+            position: relative;
             z-index: 20;
-            padding: 2rem;
-            max-width: 90%;
+            padding: 20px;
         }
         
         .title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             color: #FFD700;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-            animation: titleGlow 3s infinite alternate;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+            font-weight: bold;
         }
         
-        @keyframes titleGlow {
-            0% {
-                text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-            }
-            100% {
-                text-shadow: 0 0 25px rgba(255, 215, 0, 0.9), 0 0 35px rgba(255, 215, 0, 0.5);
-            }
-        }
-        
-        .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2.5rem;
-            color: #FFEB3B;
-            max-width: 600px;
-            line-height: 1.6;
-        }
-        
-        .bouquet {
+        .bouquet-container {
             position: relative;
             width: 300px;
             height: 400px;
-            margin: 0 auto 3rem;
-            display: flex;
-            justify-content: center;
+            margin: 0 auto;
+        }
+        
+        .bouquet {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 250px;
         }
         
         .flower {
             position: absolute;
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             color: #FFD700;
             filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
-            animation: flowerAppear 1.5s forwards;
             opacity: 0;
-            transform: translateY(20px);
+            animation: flowerAppear 1s forwards;
+            z-index: 10;
         }
         
         @keyframes flowerAppear {
             to {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
         
-        .flower:nth-child(1) {
-            top: 50px;
-            left: 130px;
-            animation-delay: 0.3s;
-        }
-        
-        .flower:nth-child(2) {
-            top: 70px;
-            left: 80px;
-            animation-delay: 0.6s;
-            font-size: 2.8rem;
-        }
-        
-        .flower:nth-child(3) {
-            top: 60px;
-            left: 180px;
-            animation-delay: 0.9s;
-            font-size: 2.9rem;
-        }
-        
-        .flower:nth-child(4) {
-            top: 110px;
-            left: 60px;
-            animation-delay: 1.2s;
-            font-size: 2.7rem;
-        }
-        
-        .flower:nth-child(5) {
-            top: 120px;
-            left: 190px;
-            animation-delay: 1.5s;
-            font-size: 2.6rem;
-        }
-        
-        .flower:nth-child(6) {
-            top: 150px;
-            left: 120px;
-            animation-delay: 1.8s;
-            font-size: 2.5rem;
-        }
-        
-        .flower:nth-child(7) {
-            top: 40px;
-            left: 130px;
-            animation-delay: 2.1s;
-            font-size: 3rem;
-        }
-        
-        .flower:nth-child(8) {
-            top: 90px;
-            left: 50px;
-            animation-delay: 2.4s;
-            font-size: 2.4rem;
-        }
-        
-        .flower:nth-child(9) {
-            top: 100px;
-            left: 200px;
-            animation-delay: 2.7s;
-            font-size: 2.4rem;
-        }
+        /* Posiciones para formar un ramo compacto */
+        .flower:nth-child(1) { top: 30px; left: 80px; animation-delay: 0.3s; }
+        .flower:nth-child(2) { top: 20px; left: 110px; animation-delay: 0.6s; }
+        .flower:nth-child(3) { top: 40px; left: 140px; animation-delay: 0.9s; }
+        .flower:nth-child(4) { top: 60px; left: 70px; animation-delay: 1.2s; }
+        .flower:nth-child(5) { top: 70px; left: 100px; animation-delay: 1.5s; }
+        .flower:nth-child(6) { top: 80px; left: 130px; animation-delay: 1.8s; }
+        .flower:nth-child(7) { top: 90px; left: 160px; animation-delay: 2.1s; }
+        .flower:nth-child(8) { top: 100px; left: 60px; animation-delay: 2.4s; }
+        .flower:nth-child(9) { top: 110px; left: 90px; animation-delay: 2.7s; }
+        .flower:nth-child(10) { top: 120px; left: 120px; animation-delay: 3.0s; }
+        .flower:nth-child(11) { top: 130px; left: 150px; animation-delay: 3.3s; }
+        .flower:nth-child(12) { top: 140px; left: 80px; animation-delay: 3.6s; }
         
         .wrapping {
             position: absolute;
-            bottom: 30px;
-            width: 180px;
-            height: 80px;
-            background: linear-gradient(to right, #4CAF50, #2E7D32);
-            border-radius: 5px;
-            z-index: -1;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 60px;
+            background: linear-gradient(to bottom, #8BC34A, #4CAF50);
+            border-radius: 5px 5px 3px 3px;
+            z-index: 5;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            animation: wrapAppear 1s forwards;
+            animation-delay: 4.0s;
+        }
+        
+        @keyframes wrapAppear {
+            to {
+                opacity: 1;
+            }
         }
         
         .ribbon {
             position: absolute;
-            bottom: 100px;
-            width: 100px;
-            height: 30px;
-            background: linear-gradient(to right, #E91E63, #F44336);
-            z-index: 10;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 25px;
+            background: linear-gradient(to right, #F44336, #E91E63);
             border-radius: 3px;
+            z-index: 15;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-            animation: ribbonFloat 4s infinite ease-in-out;
+            opacity: 0;
+            animation: ribbonAppear 1s forwards;
+            animation-delay: 4.5s;
         }
         
-        @keyframes ribbonFloat {
-            0%, 100% {
-                transform: translateY(0) rotate(-2deg);
-            }
-            50% {
-                transform: translateY(-5px) rotate(2deg);
+        @keyframes ribbonAppear {
+            to {
+                opacity: 1;
             }
         }
         
         .dedication {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
+            margin-top: 30px;
+            font-size: 1.8rem;
             color: #FFD700;
-            margin: 2rem 0;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.8;
-            }
-        }
-        
-        .hearts {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 5;
-        }
-        
-        .heart {
-            position: absolute;
-            font-size: 1.5rem;
-            color: #ff4d4d;
             opacity: 0;
-            animation: heartFloat 8s linear forwards;
+            animation: textAppear 1.5s forwards;
+            animation-delay: 5.0s;
         }
         
-        @keyframes heartFloat {
-            0% {
-                opacity: 0;
-                transform: translateY(100vh) rotate(0deg);
-            }
-            10% {
+        @keyframes textAppear {
+            to {
                 opacity: 1;
             }
-            90% {
-                opacity: 0.8;
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-100px) rotate(360deg);
-            }
         }
         
-        .footer {
-            margin-top: 2rem;
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        /* Efectos de partículas */
         .particles {
             position: fixed;
             top: 0;
@@ -257,9 +162,10 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: rgba(255, 215, 0, 0.8);
+            background: #FFD700;
             border-radius: 50%;
             animation: particleFloat linear infinite;
+            opacity: 0.7;
         }
         
         @keyframes particleFloat {
@@ -271,54 +177,52 @@
         /* Responsive */
         @media (max-width: 768px) {
             .title {
-                font-size: 2.8rem;
+                font-size: 2.2rem;
             }
             
-            .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .bouquet {
+            .bouquet-container {
                 transform: scale(0.8);
             }
             
             .dedication {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="particles" id="particles"></div>
-    <div class="hearts" id="hearts"></div>
     
     <div class="container">
         <h1 class="title">Feliz 21 de Septiembre</h1>
-        <p class="subtitle">Las flores amarillas son el regalo más bonito para alguien especial</p>
         
-        <div class="bouquet">
+        <div class="bouquet-container">
+            <div class="bouquet">
+                <div class="flower">🌼</div>
+                <div class="flower">🌼</div>
+                <div class="flower">🌼</div>
+                <div class="flower">🌼</div>
+                <div class="flower">🌼</div>
+                <div class="flower">🌼</div>
+                <div class="flower">🌼</div>
+                <div class="flower">🌼</div>
+                <div class="flower">🌼</div>
+                <div class="flower">🌼</div>
+                <div class="flower">🌼</div>
+                <div class="flower">🌼</div>
+            </div>
             <div class="wrapping"></div>
             <div class="ribbon">Para Ti</div>
-            <div class="flower">🌼</div>
-            <div class="flower">🌻</div>
-            <div class="flower">🌼</div>
-            <div class="flower">🌻</div>
-            <div class="flower">🌼</div>
-            <div class="flower">🌻</div>
-            <div class="flower">🌼</div>
-            <div class="flower">🌻</div>
-            <div class="flower">🌼</div>
-            <div class="flower">🌻</div>
         </div>
         
-        <div class="dedication">Para la persona más especial</div>
+        <div class="dedication">Para ti en este día especial</div>
     </div>
 
     <script>
         // Crear partículas de fondo
         function createParticles() {
             const particles = document.getElementById('particles');
-            const particleCount = 50;
+            const particleCount = 30;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -326,17 +230,17 @@
                 
                 // Posición aleatoria
                 const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
+                const posY = Math.random() * 100 + 100;
                 particle.style.left = `${posX}%`;
                 particle.style.top = `${posY}%`;
                 
                 // Tamaño aleatorio
-                const size = Math.random() * 3 + 1;
+                const size = Math.random() * 3 + 2;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
                 // Duración de animación aleatoria
-                const duration = Math.random() * 15 + 10;
+                const duration = Math.random() * 10 + 5;
                 particle.style.animationDuration = `${duration}s`;
                 
                 // Retraso aleatorio
@@ -347,40 +251,9 @@
             }
         }
         
-        // Crear corazones flotantes
-        function createHearts() {
-            const hearts = document.getElementById('hearts');
-            
-            setInterval(() => {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerHTML = '❤️';
-                
-                // Posición horizontal aleatoria
-                const posX = Math.random() * 100;
-                heart.style.left = `${posX}%`;
-                
-                // Tamaño aleatorio
-                const size = Math.random() * 20 + 15;
-                heart.style.fontSize = `${size}px`;
-                
-                // Duración de animación aleatoria
-                const duration = Math.random() * 5 + 5;
-                heart.style.animationDuration = `${duration}s`;
-                
-                hearts.appendChild(heart);
-                
-                // Eliminar después de la animación
-                setTimeout(() => {
-                    heart.remove();
-                }, duration * 1000);
-            }, 800);
-        }
-        
         // Inicializar efectos
         window.addEventListener('load', () => {
             createParticles();
-            createHearts();
         });
     </script>
 </body>
