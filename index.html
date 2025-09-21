@@ -405,7 +405,7 @@
             50% { transform: translateY(-10px); }
         }
         
-        /* Carta (nuevo estilo añadido) */
+        /* Carta (modificada para ser más pequeña) */
         .letter-overlay {
             position: fixed;
             top: 0;
@@ -429,9 +429,9 @@
         
         .letter-container {
             background: linear-gradient(to bottom, #fff8e1, #ffecb3);
-            width: 90%;
-            max-width: 500px;
-            padding: 30px;
+            width: 85%;
+            max-width: 450px; /* Reducido de 500px */
+            padding: 25px; /* Reducido de 30px */
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             position: relative;
@@ -439,6 +439,8 @@
             transition: transform 0.5s ease;
             color: #5d4037;
             font-family: 'Georgia', serif;
+            max-height: 85vh;
+            overflow-y: auto;
         }
         
         .letter-overlay.active .letter-container {
@@ -447,13 +449,13 @@
         
         .letter-header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reducido de 20px */
             border-bottom: 2px solid #ffd54f;
-            padding-bottom: 10px;
+            padding-bottom: 8px; /* Reducido de 10px */
         }
         
         .letter-title {
-            font-size: 2rem;
+            font-size: 1.8rem; /* Reducido de 2rem */
             color: #5d4037;
             margin-bottom: 5px;
         }
@@ -461,17 +463,27 @@
         .letter-date {
             font-style: italic;
             color: #8d6e63;
+            font-size: 0.9rem; /* Reducido ligeramente */
         }
         
         .letter-content {
-            line-height: 1.8;
-            font-size: 1.1rem;
+            line-height: 1.6; /* Reducido de 1.8 */
+            font-size: 1rem; /* Reducido de 1.1rem */
             text-align: justify;
+        }
+        
+        .letter-content ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .letter-content li {
+            margin-bottom: 5px;
         }
         
         .letter-signature {
             text-align: right;
-            margin-top: 30px;
+            margin-top: 20px; /* Reducido de 30px */
             font-style: italic;
             font-weight: bold;
             color: #5d4037;
@@ -479,26 +491,27 @@
         
         .close-letter {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 12px; /* Ajustado */
+            right: 12px; /* Ajustado */
             background: #5d4037;
             color: #ffecb3;
             border: none;
-            width: 30px;
-            height: 30px;
+            width: 28px; /* Reducido de 30px */
+            height: 28px; /* Reducido de 30px */
             border-radius: 50%;
             cursor: pointer;
             font-weight: bold;
             display: flex;
             justify-content: center;
             align-items: center;
+            font-size: 16px;
         }
         
         .letter-flower {
             position: absolute;
-            bottom: 15px;
-            left: 20px;
-            font-size: 1.5rem;
+            bottom: 12px; /* Ajustado */
+            left: 15px; /* Ajustado */
+            font-size: 1.3rem; /* Reducido de 1.5rem */
             color: #ffd54f;
         }
     </style>
@@ -632,11 +645,12 @@
             </div>
         </div>
 
-        <!-- Reproductor de audio oculto pero funcional -->
-        <iframe id="audioPlayer" style="display:none;" src="https://www.youtube.com/embed/S7gMzYqXIZc?autoplay=1&loop=1&playlist=S7gMzYqXIZc&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <!-- Reproductor de audio oculto pero funcional - MÚSICA ACTUALIZADA -->
+        <iframe id="audioPlayer" style="display:none;" src="https://www.youtube.com/embed/VIDEO_ID_ACTUALIZADO?autoplay=1&loop=1&playlist=VIDEO_ID_ACTUALIZADO&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <!-- Nota: Reemplaza VIDEO_ID_ACTUALIZADO con el ID real del video de YouTube de "Florecen Flores Amarillas" -->
     </div>
 
-    <!-- Carta (nuevo elemento añadido) -->
+    <!-- Carta (tamaño reducido) -->
     <div class="letter-overlay" id="letterOverlay">
         <div class="letter-container">
             <button class="close-letter" id="closeLetter">&times;</button>
@@ -763,6 +777,11 @@
             // Precargar partículas pero no mostrarlas hasta que se haga clic
             const particles = document.getElementById('particles');
             particles.innerHTML = '';
+            
+            // Actualizar el reproductor con la música correcta
+            // Reemplaza VIDEO_ID_REAL con el ID real del video de YouTube
+            const correctVideoId = "VIDEO_ID_REAL"; // Necesitas obtener el ID correcto
+            audioPlayer.src = `https://www.youtube.com/embed/${correctVideoId}?autoplay=1&loop=1&playlist=${correctVideoId}&controls=0`;
         });
     </script>
 </body>
