@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ramo de Flores - 21 de Septiembre</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -15,7 +16,7 @@
             background: linear-gradient(to bottom, #1a0635, #000000);
             min-height: 100vh;
             overflow: hidden;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
             color: white;
             display: flex;
             flex-direction: column;
@@ -25,151 +26,150 @@
             padding: 20px;
         }
         
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 600px;
+        }
+        
         .message {
             font-size: 1.5rem;
-            margin-bottom: 30px;
-            text-shadow: 0 0 10px rgba(255, 235, 59, 0.7);
-            z-index: 10;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(255, 235, 59, 0.8);
             background: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 235, 59, 0.3);
-            max-width: 90%;
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 235, 59, 0.4);
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 15px rgba(255, 235, 59, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 25px rgba(255, 235, 59, 0.7);
+            }
         }
         
         .bouquet {
             position: relative;
-            width: 300px;
-            height: 400px;
+            width: 320px;
+            height: 420px;
             margin: 0 auto;
             z-index: 5;
             display: flex;
             justify-content: center;
+            perspective: 1000px;
         }
         
         .flower {
             position: absolute;
             font-size: 50px;
             color: #FFEB3B;
-            filter: drop-shadow(0 0 8px rgba(255, 235, 59, 0.9));
-            animation: float 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 235, 59, 0.9));
+            animation: float 5s ease-in-out infinite;
             opacity: 0;
             transform: translateY(20px);
+            z-index: 2;
+        }
+        
+        .flower::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 5px;
+            height: 60px;
+            background: linear-gradient(to bottom, #4CAF50, #2E7D32);
+            z-index: -1;
+            border-radius: 2px;
         }
         
         .flower:nth-child(1) {
-            animation-delay: 0.5s;
-            top: 120px;
-            left: 130px;
+            animation-delay: 0.3s;
+            top: 100px;
+            left: 140px;
+            font-size: 55px;
         }
         
         .flower:nth-child(2) {
-            animation-delay: 1s;
-            top: 100px;
+            animation-delay: 0.6s;
+            top: 80px;
             left: 100px;
+            font-size: 48px;
         }
         
         .flower:nth-child(3) {
-            animation-delay: 1.5s;
-            top: 90px;
-            left: 160px;
+            animation-delay: 0.9s;
+            top: 70px;
+            left: 170px;
+            font-size: 52px;
         }
         
         .flower:nth-child(4) {
-            animation-delay: 2s;
-            top: 150px;
+            animation-delay: 1.2s;
+            top: 130px;
             left: 80px;
+            font-size: 45px;
         }
         
         .flower:nth-child(5) {
-            animation-delay: 2.5s;
-            top: 160px;
-            left: 170px;
+            animation-delay: 1.5s;
+            top: 140px;
+            left: 180px;
+            font-size: 50px;
         }
         
         .flower:nth-child(6) {
-            animation-delay: 3s;
-            top: 190px;
-            left: 130px;
+            animation-delay: 1.8s;
+            top: 170px;
+            left: 140px;
+            font-size: 47px;
         }
         
         .flower:nth-child(7) {
-            animation-delay: 3.5s;
-            top: 80px;
-            left: 130px;
+            animation-delay: 2.1s;
+            top: 60px;
+            left: 140px;
+            font-size: 53px;
         }
         
         .flower:nth-child(8) {
-            animation-delay: 4s;
-            top: 130px;
+            animation-delay: 2.4s;
+            top: 110px;
             left: 60px;
+            font-size: 44px;
         }
         
         .flower:nth-child(9) {
-            animation-delay: 4.5s;
-            top: 140px;
-            left: 190px;
+            animation-delay: 2.7s;
+            top: 120px;
+            left: 200px;
+            font-size: 46px;
         }
         
         .flower:nth-child(10) {
-            animation-delay: 5s;
-            top: 200px;
+            animation-delay: 3.0s;
+            top: 180px;
             left: 100px;
+            font-size: 42px;
         }
         
         .flower:nth-child(11) {
-            animation-delay: 5.5s;
-            top: 210px;
-            left: 160px;
+            animation-delay: 3.3s;
+            top: 190px;
+            left: 170px;
+            font-size: 43px;
         }
         
         .flower:nth-child(12) {
-            animation-delay: 6s;
-            top: 170px;
-            left: 130px;
-        }
-        
-        .stem {
-            position: absolute;
-            bottom: 0;
-            width: 8px;
-            height: 180px;
-            background: linear-gradient(to bottom, #2e7d32, #1b5e20);
-            border-radius: 4px 4px 0 0;
-            z-index: 4;
-        }
-        
-        .leaves {
-            position: absolute;
-            bottom: 80px;
-            width: 150px;
-            height: 80px;
-            background: #2e7d32;
-            border-radius: 50%;
-            z-index: 3;
-            opacity: 0.7;
-        }
-        
-        .ribbon {
-            position: absolute;
-            bottom: 70px;
-            width: 100px;
-            height: 30px;
-            background: #ff4d4d;
-            z-index: 6;
-            border-radius: 5px;
-            animation: ribbon 3s ease-in-out infinite;
-        }
-        
-        .falling-flower {
-            position: absolute;
-            font-size: 24px;
-            color: #FFEB3B;
-            top: -50px;
-            opacity: 0.7;
-            animation: fall linear forwards;
-            z-index: 2;
-            filter: drop-shadow(0 0 5px rgba(255, 235, 59, 0.7));
+            animation-delay: 3.6s;
+            top: 150px;
+            left: 140px;
+            font-size: 49px;
         }
         
         @keyframes float {
@@ -177,10 +177,66 @@
                 transform: translateY(0) rotate(0deg);
                 opacity: 1;
             }
-            50% {
-                transform: translateY(-10px) rotate(5deg);
-                opacity: 0.9;
+            25% {
+                transform: translateY(-8px) rotate(2deg);
             }
+            50% {
+                transform: translateY(-5px) rotate(-2deg);
+            }
+            75% {
+                transform: translateY(-10px) rotate(3deg);
+            }
+        }
+        
+        .wrapping {
+            position: absolute;
+            bottom: 0;
+            width: 180px;
+            height: 220px;
+            background: linear-gradient(to bottom, #8BC34A, #4CAF50);
+            border-radius: 10px 10px 5px 5px;
+            z-index: 1;
+            transform: rotateX(20deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+        }
+        
+        .ribbon {
+            position: absolute;
+            bottom: 30px;
+            width: 120px;
+            height: 40px;
+            background: linear-gradient(to right, #F44336, #E91E63);
+            z-index: 6;
+            border-radius: 5px;
+            animation: ribbon 4s ease-in-out infinite;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes ribbon {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(3deg);
+            }
+        }
+        
+        .falling-petal {
+            position: absolute;
+            font-size: 20px;
+            color: #FFEB3B;
+            top: -30px;
+            opacity: 0.8;
+            animation: fall linear forwards;
+            z-index: 2;
+            filter: drop-shadow(0 0 3px rgba(255, 235, 59, 0.7));
         }
         
         @keyframes fall {
@@ -190,42 +246,34 @@
             }
         }
         
-        @keyframes ribbon {
-            0%, 100% {
-                transform: rotate(0deg);
+        .dedication {
+            font-size: 2.8rem;
+            margin-top: 40px;
+            color: #FFEB3B;
+            text-shadow: 0 0 20px rgba(255, 235, 59, 0.9);
+            font-style: italic;
+            letter-spacing: 2px;
+            animation: glow 2s infinite alternate;
+            font-family: 'Georgia', serif;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 235, 59, 0.7);
             }
-            50% {
-                transform: rotate(5deg);
+            to {
+                text-shadow: 0 0 25px rgba(255, 235, 59, 1), 0 0 35px rgba(255, 235, 59, 0.8);
             }
         }
         
         .footer {
             position: fixed;
             bottom: 20px;
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: rgba(255, 235, 59, 0.7);
             z-index: 20;
             text-align: center;
             width: 100%;
-        }
-        
-        .dedication {
-            font-size: 2.5rem;
-            margin-top: 30px;
-            color: #FFEB3B;
-            text-shadow: 0 0 15px rgba(255, 235, 59, 0.8);
-            font-style: italic;
-            letter-spacing: 2px;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.7;
-            }
         }
         
         @media (max-width: 768px) {
@@ -235,95 +283,97 @@
             
             .message {
                 font-size: 1.2rem;
+                padding: 20px;
             }
             
             .dedication {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="message">
-        <h2>Feliz 21 de septiembre</h2>
-        <p>Un ramo de flores amarillas para alegrar tu día</p>
+    <div class="container">
+        <div class="message">
+            <h2><i class="fas fa-gift"></i> Feliz 21 de Septiembre</h2>
+            <p>Un ramo de flores amarillas para iluminar tu día</p>
+        </div>
+        
+        <div class="bouquet">
+            <div class="wrapping"></div>
+            <div class="ribbon">Para Ti</div>
+            <div class="flower">🌼</div>
+            <div class="flower">🌼</div>
+            <div class="flower">🌻</div>
+            <div class="flower">🌼</div>
+            <div class="flower">🌻</div>
+            <div class="flower">🌼</div>
+            <div class="flower">🌼</div>
+            <div class="flower">🌻</div>
+            <div class="flower">🌼</div>
+            <div class="flower">🌻</div>
+            <div class="flower">🌼</div>
+            <div class="flower">🌻</div>
+        </div>
+        
+        <div class="dedication">Para el más bonito</div>
     </div>
-    
-    <div class="bouquet">
-        <div class="stem"></div>
-        <div class="leaves"></div>
-        <div class="ribbon"></div>
-        <div class="flower">🌼</div>
-        <div class="flower">🌼</div>
-        <div class="flower">🌻</div>
-        <div class="flower">🌼</div>
-        <div class="flower">🌻</div>
-        <div class="flower">🌼</div>
-        <div class="flower">🌼</div>
-        <div class="flower">🌻</div>
-        <div class="flower">🌼</div>
-        <div class="flower">🌻</div>
-        <div class="flower">🌼</div>
-        <div class="flower">🌻</div>
-    </div>
-    
-    <div class="dedication">Al bonito</div>
     
     <div class="footer">
-        Hecho con ❤️ para el 21 de septiembre
+        Hecho con <i class="fas fa-heart" style="color:#ff4d4d"></i> para el 21 de septiembre
     </div>
 
     <script>
-        // Crear contenedor para flores que caen
-        const fallingFlowers = document.createElement('div');
-        fallingFlowers.style.position = 'fixed';
-        fallingFlowers.style.top = '0';
-        fallingFlowers.style.left = '0';
-        fallingFlowers.style.width = '100%';
-        fallingFlowers.style.height = '100%';
-        fallingFlowers.style.pointerEvents = 'none';
-        fallingFlowers.style.zIndex = '1';
-        document.body.appendChild(fallingFlowers);
+        // Crear contenedor para pétalos que caen
+        const fallingPetals = document.createElement('div');
+        fallingPetals.style.position = 'fixed';
+        fallingPetals.style.top = '0';
+        fallingPetals.style.left = '0';
+        fallingPetals.style.width = '100%';
+        fallingPetals.style.height = '100%';
+        fallingPetals.style.pointerEvents = 'none';
+        fallingPetals.style.zIndex = '1';
+        document.body.appendChild(fallingPetals);
         
-        // Función para crear flores que caen
-        function createFallingFlower() {
-            const fallingFlower = document.createElement('div');
-            fallingFlower.className = 'falling-flower';
-            fallingFlower.innerHTML = Math.random() > 0.5 ? '🌼' : '🌻';
+        // Función para crear pétalos que caen
+        function createFallingPetal() {
+            const fallingPetal = document.createElement('div');
+            fallingPetal.className = 'falling-petal';
+            fallingPetal.innerHTML = '🌸';
             
             // Posición horizontal aleatoria
             const posX = Math.random() * 100;
-            fallingFlower.style.left = `${posX}%`;
+            fallingPetal.style.left = `${posX}%`;
             
             // Tamaño aleatorio
-            const size = Math.random() * 20 + 20;
-            fallingFlower.style.fontSize = `${size}px`;
+            const size = Math.random() * 15 + 15;
+            fallingPetal.style.fontSize = `${size}px`;
             
             // Duración de la animación
-            const duration = Math.random() * 10 + 5;
-            fallingFlower.style.animationDuration = `${duration}s`;
+            const duration = Math.random() * 8 + 5;
+            fallingPetal.style.animationDuration = `${duration}s`;
             
-            fallingFlowers.appendChild(fallingFlower);
+            fallingPetals.appendChild(fallingPetal);
             
-            // Eliminar la flor después de que termine la animación
+            // Eliminar el pétalo después de que termine la animación
             setTimeout(() => {
-                if (fallingFlower.parentNode) {
-                    fallingFlower.remove();
+                if (fallingPetal.parentNode) {
+                    fallingPetal.remove();
                 }
             }, duration * 1000);
         }
         
-        // Iniciar la lluvia de flores
-        function startFallingFlowers() {
-            // Crear algunas flores iniciales
-            for (let i = 0; i < 5; i++) {
+        // Iniciar la lluvia de pétalos
+        function startFallingPetals() {
+            // Crear algunos pétalos iniciales
+            for (let i = 0; i < 8; i++) {
                 setTimeout(() => {
-                    createFallingFlower();
-                }, i * 300);
+                    createFallingPetal();
+                }, i * 400);
             }
             
-            // Continuar creando flores en intervalos
-            setInterval(createFallingFlower, 800);
+            // Continuar creando pétalos en intervalos
+            setInterval(createFallingPetal, 600);
         }
         
         // Iniciar animaciones cuando la página cargue
@@ -333,11 +383,11 @@
             flowers.forEach((flower, index) => {
                 setTimeout(() => {
                     flower.style.opacity = '1';
-                }, index * 200);
+                }, index * 300);
             });
             
-            // Iniciar flores cayendo
-            startFallingFlowers();
+            // Iniciar pétalos cayendo
+            startFallingPetals();
         });
     </script>
 </body>
