@@ -27,6 +27,8 @@
             position: relative;
             z-index: 20;
             padding: 20px;
+            width: 100%;
+            max-width: 500px;
         }
         
         .title {
@@ -39,12 +41,12 @@
         
         .bouquet-container {
             position: relative;
-            width: 350px;
-            height: 450px;
+            width: 320px;
+            height: 420px;
             margin: 0 auto;
         }
         
-        /* Tallos con flores unidas */
+        /* Flores con tallos unidos - CENTRADAS */
         .flower-with-stem {
             position: absolute;
             display: flex;
@@ -63,7 +65,7 @@
         }
         
         .flower {
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             color: #FFD700;
             filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
             margin-bottom: -15px;
@@ -76,44 +78,44 @@
             }
         }
         
-        /* Posiciones para formar un ramo compacto */
-        .flower-with-stem:nth-child(1) { left: 170px; bottom: 80px; animation-delay: 0.3s; }
-        .flower-with-stem:nth-child(2) { left: 140px; bottom: 70px; animation-delay: 0.6s; }
-        .flower-with-stem:nth-child(3) { left: 200px; bottom: 75px; animation-delay: 0.9s; }
-        .flower-with-stem:nth-child(4) { left: 120px; bottom: 65px; animation-delay: 1.2s; }
-        .flower-with-stem:nth-child(5) { left: 220px; bottom: 60px; animation-delay: 1.5s; }
-        .flower-with-stem:nth-child(6) { left: 100px; bottom: 85px; animation-delay: 1.8s; }
-        .flower-with-stem:nth-child(7) { left: 240px; bottom: 55px; animation-delay: 2.1s; }
-        .flower-with-stem:nth-child(8) { left: 160px; bottom: 75px; animation-delay: 2.4s; }
-        .flower-with-stem:nth-child(9) { left: 180px; bottom: 70px; animation-delay: 2.7s; }
-        .flower-with-stem:nth-child(10) { left: 130px; bottom: 65px; animation-delay: 3.0s; }
-        .flower-with-stem:nth-child(11) { left: 210px; bottom: 80px; animation-delay: 3.3s; }
+        /* Posiciones CENTRADAS para formar un ramo compacto */
+        .flower-with-stem:nth-child(1) { left: 150px; bottom: 70px; animation-delay: 0.3s; }
+        .flower-with-stem:nth-child(2) { left: 130px; bottom: 65px; animation-delay: 0.6s; }
+        .flower-with-stem:nth-child(3) { left: 170px; bottom: 68px; animation-delay: 0.9s; }
+        .flower-with-stem:nth-child(4) { left: 110px; bottom: 62px; animation-delay: 1.2s; }
+        .flower-with-stem:nth-child(5) { left: 190px; bottom: 60px; animation-delay: 1.5s; }
+        .flower-with-stem:nth-child(6) { left: 90px; bottom: 75px; animation-delay: 1.8s; }
+        .flower-with-stem:nth-child(7) { left: 210px; bottom: 58px; animation-delay: 2.1s; }
+        .flower-with-stem:nth-child(8) { left: 140px; bottom: 68px; animation-delay: 2.4s; }
+        .flower-with-stem:nth-child(9) { left: 160px; bottom: 65px; animation-delay: 2.7s; }
+        .flower-with-stem:nth-child(10) { left: 120px; bottom: 63px; animation-delay: 3.0s; }
+        .flower-with-stem:nth-child(11) { left: 180px; bottom: 70px; animation-delay: 3.3s; }
         
-        /* Alturas de los tallos */
-        .flower-with-stem:nth-child(1) .stem { height: 200px; }
-        .flower-with-stem:nth-child(2) .stem { height: 190px; }
-        .flower-with-stem:nth-child(3) .stem { height: 195px; }
-        .flower-with-stem:nth-child(4) .stem { height: 185px; }
-        .flower-with-stem:nth-child(5) .stem { height: 180px; }
-        .flower-with-stem:nth-child(6) .stem { height: 205px; }
-        .flower-with-stem:nth-child(7) .stem { height: 175px; }
-        .flower-with-stem:nth-child(8) .stem { height: 195px; }
-        .flower-with-stem:nth-child(9) .stem { height: 190px; }
-        .flower-with-stem:nth-child(10) .stem { height: 185px; }
-        .flower-with-stem:nth-child(11) .stem { height: 200px; }
+        /* Alturas de los tallos - TODOS DENTRO DE LA ENVOLTURA */
+        .flower-with-stem:nth-child(1) .stem { height: 180px; }
+        .flower-with-stem:nth-child(2) .stem { height: 175px; }
+        .flower-with-stem:nth-child(3) .stem { height: 178px; }
+        .flower-with-stem:nth-child(4) .stem { height: 172px; }
+        .flower-with-stem:nth-child(5) .stem { height: 170px; }
+        .flower-with-stem:nth-child(6) .stem { height: 185px; }
+        .flower-with-stem:nth-child(7) .stem { height: 168px; }
+        .flower-with-stem:nth-child(8) .stem { height: 178px; }
+        .flower-with-stem:nth-child(9) .stem { height: 175px; }
+        .flower-with-stem:nth-child(10) .stem { height: 173px; }
+        .flower-with-stem:nth-child(11) .stem { height: 180px; }
         
-        /* Envoltura del ramo */
+        /* Envoltura del ramo - MÁS ANCHA */
         .wrapping {
             position: absolute;
-            bottom: 60px;
+            bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
-            width: 180px;
-            height: 80px;
+            width: 200px;
+            height: 90px;
             background: linear-gradient(to bottom, #8BC34A, #4CAF50);
-            border-radius: 10px 10px 6px 6px;
+            border-radius: 12px 12px 8px 8px;
             z-index: 4;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
             opacity: 0;
             animation: wrapAppear 1s forwards;
             animation-delay: 4.0s;
@@ -131,18 +133,18 @@
             bottom: 120px;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 35px;
+            width: 140px;
+            height: 40px;
             background: linear-gradient(to right, #F44336, #E91E63);
-            border-radius: 5px;
+            border-radius: 6px;
             z-index: 15;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             opacity: 0;
             animation: ribbonAppear 1s forwards;
             animation-delay: 4.5s;
@@ -154,15 +156,29 @@
             }
         }
         
-        /* Tiempo */
-        .time {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
+        /* Dedicatoria especial */
+        .dedication {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
         }
         
-        .time div {
-            margin: 5px 0;
+        .dedication-text {
+            font-size: 1.4rem;
+            color: #FFD700;
+            line-height: 1.6;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+            opacity: 0;
+            animation: textAppear 1.5s forwards;
+            animation-delay: 5.0s;
+        }
+        
+        @keyframes textAppear {
+            to {
+                opacity: 1;
+            }
         }
         
         /* Efecto de partículas */
@@ -199,7 +215,11 @@
             }
             
             .bouquet-container {
-                transform: scale(0.8);
+                transform: scale(0.85);
+            }
+            
+            .dedication-text {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -211,7 +231,7 @@
         <h1 class="title">Feliz 21 de Septiembre</h1>
         
         <div class="bouquet-container">
-            <!-- Flores con tallos unidos -->
+            <!-- Flores con tallos unidos y CENTRADAS -->
             <div class="flower-with-stem">
                 <div class="flower">🌻</div>
                 <div class="stem"></div>
@@ -261,9 +281,12 @@
             <div class="ribbon">Para Ti</div>
         </div>
         
-        <div class="time">
-            <div>0:00</div>
-            <div>1:36</div>
+        <div class="dedication">
+            <p class="dedication-text">
+                En este día especial, te envío estas flores amarillas<br>
+                como símbolo de amistad, cariño y admiración.<br>
+                Que iluminen tu día como tú iluminas el mío.
+            </p>
         </div>
     </div>
 
