@@ -278,6 +278,12 @@
             opacity: 0;
             animation: ribbonAppear 1s forwards;
             animation-delay: 3.5s;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .ribbon:hover {
+            transform: translateX(-50%) scale(1.05);
         }
         
         @keyframes ribbonAppear {
@@ -398,6 +404,103 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
+        
+        /* Carta (nuevo estilo añadido) */
+        .letter-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .letter-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .letter-container {
+            background: linear-gradient(to bottom, #fff8e1, #ffecb3);
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.5s ease;
+            color: #5d4037;
+            font-family: 'Georgia', serif;
+        }
+        
+        .letter-overlay.active .letter-container {
+            transform: scale(1);
+        }
+        
+        .letter-header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffd54f;
+            padding-bottom: 10px;
+        }
+        
+        .letter-title {
+            font-size: 2rem;
+            color: #5d4037;
+            margin-bottom: 5px;
+        }
+        
+        .letter-date {
+            font-style: italic;
+            color: #8d6e63;
+        }
+        
+        .letter-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+        
+        .letter-signature {
+            text-align: right;
+            margin-top: 30px;
+            font-style: italic;
+            font-weight: bold;
+            color: #5d4037;
+        }
+        
+        .close-letter {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #5d4037;
+            color: #ffecb3;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .letter-flower {
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+            font-size: 1.5rem;
+            color: #ffd54f;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -516,21 +619,49 @@
                 </div>
                 
                 <div class="wrapping"></div>
-                <div class="ribbon">Para Ti</div>
+                <div class="ribbon" id="viewMoreBtn">Ver más</div>
             </div>
             
             <div class="dedication">
                 <p class="dedication-text">
                     "Las flores amarillas son mensajes del corazón,<br>
-                    que hablan de amistad y cariño sincero.<br>
+                    y mi corazón quiere demostrarte mi cariño sincero.<br>
                     En este día especial, que cada pétalo te recuerde<br> 
-                    lo especial que eres."
+                    lo especial que eres para mi."
                 </p>
             </div>
         </div>
 
         <!-- Reproductor de audio oculto pero funcional -->
         <iframe id="audioPlayer" style="display:none;" src="https://www.youtube.com/embed/S7gMzYqXIZc?autoplay=1&loop=1&playlist=S7gMzYqXIZc&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <!-- Carta (nuevo elemento añadido) -->
+    <div class="letter-overlay" id="letterOverlay">
+        <div class="letter-container">
+            <button class="close-letter" id="closeLetter">&times;</button>
+            <div class="letter-header">
+                <h2 class="letter-title">Mi Testamento de Cariño</h2>
+                <div class="letter-date">21 de Septiembre</div>
+            </div>
+            <div class="letter-content">
+                <p>Querida Niña,</p>
+                <p>En este día especial, quiero dejar constancia de todo lo que significas para mí. Eres como estas flores amarillas: brillas con luz propia y alegras cada espacio que ocupas.</p>
+                <p>Por eso, te legó:</p>
+                <ul>
+                    <li>Mi eterna gratitud por todo estos momentos</li>
+                    <li>Mis mejores risas guardadas en nuestros recuerdos</li>
+                    <li>Todos los abrazos virtuales que necesites en los días grises</li>
+                    <li>La promesa de estar aquí siempre, en las buenas y en las malas</li>
+                </ul>
+                <p>Que este ramo simbólico sea testigo de mi cariño y aprecio hacia ti. No hay bien material que pueda compararse con el valor de un cariño sincero.</p>
+            </div>
+            <div class="letter-signature">
+                <p>Con todo mi cariño,</p>
+                <p>Daniel el mas pingon</p>
+            </div>
+            <div class="letter-flower">🌻</div>
+        </div>
     </div>
 
     <script>
@@ -541,6 +672,9 @@
         const musicControl = document.getElementById('musicControl');
         const musicIcon = document.getElementById('musicIcon');
         const audioPlayer = document.getElementById('audioPlayer');
+        const viewMoreBtn = document.getElementById('viewMoreBtn');
+        const letterOverlay = document.getElementById('letterOverlay');
+        const closeLetter = document.getElementById('closeLetter');
         let musicPlaying = true;
         
         // Crear partículas de fondo
@@ -605,6 +739,23 @@
                     audioPlayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
                 }, 500);
             }, 800);
+        });
+        
+        // Botón "Ver más" para mostrar la carta
+        viewMoreBtn.addEventListener('click', function() {
+            letterOverlay.classList.add('active');
+        });
+        
+        // Cerrar la carta
+        closeLetter.addEventListener('click', function() {
+            letterOverlay.classList.remove('active');
+        });
+        
+        // Cerrar la carta al hacer clic fuera de ella
+        letterOverlay.addEventListener('click', function(e) {
+            if (e.target === letterOverlay) {
+                letterOverlay.classList.remove('active');
+            }
         });
         
         // Inicializar efectos
