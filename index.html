@@ -46,7 +46,7 @@
         
         .bouquet-container {
             position: relative;
-            width: 320px;
+            width: 280px;
             height: 380px;
             margin: 20px auto;
         }
@@ -93,14 +93,14 @@
         }
         
         .leaf.left {
-            left: -15px;
+            left: -18px;
             transform-origin: right center;
         }
         
         .leaf.right {
-            right: -15px;
-            transform-origin: left center;
+            right: -18px;
             transform: scaleX(-1);
+            transform-origin: left center;
         }
         
         /* Animaciones */
@@ -114,22 +114,22 @@
         
         @keyframes growLeaf {
             to { 
-                width: 22px; 
-                height: 12px; 
+                width: 24px; 
+                height: 14px; 
                 opacity: 0.9; 
             }
         }
         
-        /* Posiciones centradas y ajustadas para las flores - más agrupadas */
-        .flower-with-stem:nth-child(1) { left: 50%; margin-left: -50px; bottom: 60px; }
+        /* Posiciones perfectamente centradas y agrupadas */
+        .flower-with-stem:nth-child(1) { left: 50%; margin-left: -45px; bottom: 60px; }
         .flower-with-stem:nth-child(2) { left: 50%; margin-left: -25px; bottom: 55px; }
-        .flower-with-stem:nth-child(3) { left: 50%; margin-left: 0px; bottom: 58px; }
-        .flower-with-stem:nth-child(4) { left: 50%; margin-left: 25px; bottom: 52px; }
-        .flower-with-stem:nth-child(5) { left: 50%; margin-left: 50px; bottom: 50px; }
-        .flower-with-stem:nth-child(6) { left: 50%; margin-left: -40px; bottom: 65px; }
-        .flower-with-stem:nth-child(7) { left: 50%; margin-left: 40px; bottom: 48px; }
+        .flower-with-stem:nth-child(3) { left: 50%; margin-left: -5px; bottom: 58px; }
+        .flower-with-stem:nth-child(4) { left: 50%; margin-left: 15px; bottom: 52px; }
+        .flower-with-stem:nth-child(5) { left: 50%; margin-left: 35px; bottom: 50px; }
+        .flower-with-stem:nth-child(6) { left: 50%; margin-left: -35px; bottom: 65px; }
+        .flower-with-stem:nth-child(7) { left: 50%; margin-left: 25px; bottom: 48px; }
         .flower-with-stem:nth-child(8) { left: 50%; margin-left: -15px; bottom: 62px; }
-        .flower-with-stem:nth-child(9) { left: 50%; margin-left: 15px; bottom: 54px; }
+        .flower-with-stem:nth-child(9) { left: 50%; margin-left: 5px; bottom: 54px; }
         
         /* Alturas de los tallos */
         .flower-with-stem:nth-child(1) .stem { --stem-height: 150px; animation-delay: 0.3s; }
@@ -177,7 +177,7 @@
             bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
-            width: 200px;
+            width: 180px;
             height: 70px;
             background: linear-gradient(to bottom, #8BC34A, #4CAF50);
             border-radius: 10px 10px 6px 6px;
