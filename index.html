@@ -14,13 +14,9 @@
         body {
             background: linear-gradient(to bottom, #1a1a2e, #0f3460);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             font-family: 'Arial', sans-serif;
-            overflow: hidden;
+            overflow-x: hidden;
             color: white;
-            padding: 20px;
         }
         
         /* Pantalla de inicio */
@@ -30,24 +26,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(26, 26, 46, 0.9), rgba(15, 52, 96, 0.9));
+            background: linear-gradient(to bottom, rgba(26, 26, 46, 0.95), rgba(15, 52, 96, 0.95));
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             z-index: 1000;
-            transition: opacity 0.8s ease;
+            transition: opacity 1s ease;
         }
         
         .welcome-content {
             text-align: center;
             max-width: 500px;
-            padding: 30px;
+            padding: 40px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 215, 0, 0.3);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
         }
         
         .welcome-title {
@@ -88,7 +84,7 @@
         /* Contenido principal (oculto inicialmente) */
         .main-content {
             display: none;
-            width: 100%;
+            padding: 20px;
         }
         
         .container {
@@ -302,7 +298,7 @@
         }
         
         .dedication-text {
-            font-size: 0.9rem; /* Texto más pequeño */
+            font-size: 0.9rem;
             color: #FFD700;
             line-height: 1.4;
             text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
@@ -533,8 +529,8 @@
             </div>
         </div>
 
-        <!-- Audio directo para reproducción inmediata -->
-        <audio id="backgroundMusic" loop style="display: none;">
+        <!-- Audio para la música -->
+        <audio id="backgroundMusic" loop>
             <source src="https://audio.jukehost.co.uk/4t1h2Q3q7Q3YwU0f3i8W8Q2f9G8k8U8A" type="audio/mpeg">
         </audio>
     </div>
@@ -572,3 +568,65 @@
                 
                 const delay = Math.random() * 3;
                 particle.style.animationDelay = `${delay}s`;
+                
+                particles.appendChild(particle);
+            }
+        }
+        
+        // Reproducir música
+        function playMusic() {
+            backgroundMusic.play().then(() => {
+                console.log("Música reproduciéndose");
+            }).catch(error => {
+                console.log("Error al reproducir música:", error);
+                // Si falla, intentar de nuevo con interacción del usuario
+                document.addEventListener('click', function() {
+                    backgroundMusic.play();
+                }, { once: true });
+            });
+        }
+        
+        // Control de música
+        musicControl.addEventListener('click', function() {
+            if (musicPlaying) {
+                backgroundMusic.pause();
+                musicIcon.classList.remove('fa-pause');
+                musicIcon.classList.add('fa-play');
+            } else {
+                backgroundMusic.play();
+                musicIcon.classList.remove('fa-play');
+                musicIcon.classList.add('fa-pause');
+            }
+            musicPlaying = !musicPlaying;
+        });
+        
+        // Botón de sorpresa
+        surpriseBtn.addEventListener('click', function() {
+            // Ocultar pantalla de bienvenida
+            welcomeScreen.style.opacity = '0';
+            
+            // Mostrar contenido principal después de la transición
+            setTimeout(function() {
+                welcomeScreen.style.display = 'none';
+                mainContent.style.display = 'block';
+                
+                // Iniciar animaciones
+                createParticles();
+                
+                // Reproducir música
+                playMusic();
+            }, 800);
+        });
+        
+        // Permitir que el usuario active el audio si es necesario
+        document.addEventListener('click', function() {
+            if (backgroundMusic.paused && mainContent.style.display === 'block') {
+                backgroundMusic.play();
+                musicPlaying = true;
+                musicIcon.classList.remove('fa-play');
+                musicIcon.classList.add('fa-pause');
+            }
+        });
+    </script>
+</body>
+</html>
