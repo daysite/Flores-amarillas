@@ -529,10 +529,8 @@
             </div>
         </div>
 
-        <!-- Audio para la música -->
-        <audio id="backgroundMusic" loop>
-            <source src="https://audio.jukehost.co.uk/4t1h2Q3q7Q3YwU0f3i8W8Q2f9G8k8U8A" type="audio/mpeg">
-        </audio>
+        <!-- Reproductor de audio oculto pero funcional -->
+        <iframe id="audioPlayer" style="display:none;" src="https://www.youtube.com/embed/S7gMzYqXIZc?autoplay=1&loop=1&playlist=S7gMzYqXIZc&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 
     <script>
@@ -542,7 +540,7 @@
         const surpriseBtn = document.getElementById('surpriseBtn');
         const musicControl = document.getElementById('musicControl');
         const musicIcon = document.getElementById('musicIcon');
-        const backgroundMusic = document.getElementById('backgroundMusic');
+        const audioPlayer = document.getElementById('audioPlayer');
         let musicPlaying = true;
         
         // Crear partículas de fondo
@@ -573,27 +571,16 @@
             }
         }
         
-        // Reproducir música
-        function playMusic() {
-            backgroundMusic.play().then(() => {
-                console.log("Música reproduciéndose");
-            }).catch(error => {
-                console.log("Error al reproducir música:", error);
-                // Si falla, intentar de nuevo con interacción del usuario
-                document.addEventListener('click', function() {
-                    backgroundMusic.play();
-                }, { once: true });
-            });
-        }
-        
         // Control de música
         musicControl.addEventListener('click', function() {
             if (musicPlaying) {
-                backgroundMusic.pause();
+                // Pausar música
+                audioPlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
                 musicIcon.classList.remove('fa-pause');
                 musicIcon.classList.add('fa-play');
             } else {
-                backgroundMusic.play();
+                // Reproducir música
+                audioPlayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
                 musicIcon.classList.remove('fa-play');
                 musicIcon.classList.add('fa-pause');
             }
@@ -613,19 +600,18 @@
                 // Iniciar animaciones
                 createParticles();
                 
-                // Reproducir música
-                playMusic();
+                // Forzar la reproducción automática
+                setTimeout(function() {
+                    audioPlayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                }, 500);
             }, 800);
         });
         
-        // Permitir que el usuario active el audio si es necesario
-        document.addEventListener('click', function() {
-            if (backgroundMusic.paused && mainContent.style.display === 'block') {
-                backgroundMusic.play();
-                musicPlaying = true;
-                musicIcon.classList.remove('fa-play');
-                musicIcon.classList.add('fa-pause');
-            }
+        // Inicializar efectos
+        window.addEventListener('load', function() {
+            // Precargar partículas pero no mostrarlas hasta que se haga clic
+            const particles = document.getElementById('particles');
+            particles.innerHTML = '';
         });
     </script>
 </body>
