@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flores Amarillas Animadas | GitHub</title>
+    <title>Dedica Flores Amarillas - 21 de Septiembre</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -24,61 +24,108 @@
             padding: 20px;
         }
         
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            margin: 20px 0;
+            z-index: 10;
+        }
+        
         header {
             text-align: center;
-            padding: 25px 0;
-            width: 100%;
-            max-width: 800px;
-            z-index: 10;
+            padding: 20px 0;
         }
         
         h1 {
             font-size: 2.8rem;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
             color: #FFEB3B;
         }
         
-        .description {
-            font-size: 1.2rem;
+        .subtitle {
+            font-size: 1.4rem;
             margin-bottom: 25px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            color: #FFD700;
+        }
+        
+        .dedication-box {
+            background: rgba(255, 235, 59, 0.15);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 2px solid #FFEB3B;
+        }
+        
+        .message {
+            font-size: 1.3rem;
             line-height: 1.6;
+            text-align: center;
+            margin-bottom: 20px;
+            font-style: italic;
         }
         
-        .github-info {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 15px;
-            border-radius: 12px;
-            margin: 20px 0;
+        .from {
+            text-align: right;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .customize {
+            margin: 30px 0;
+        }
+        
+        .customize h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #FFD700;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input, textarea {
             width: 100%;
-            max-width: 500px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #FFEB3B;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
         }
         
-        .controls {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 20px 0;
+        textarea {
+            min-height: 100px;
+            resize: vertical;
         }
         
         .btn {
             background: linear-gradient(to right, #FFC107, #FFEB3B);
             color: #333;
             border: none;
-            padding: 14px 28px;
+            padding: 15px 30px;
             font-size: 1.1rem;
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
+            margin: 10px 5px;
         }
         
         .btn:hover {
@@ -88,6 +135,14 @@
         
         .btn i {
             font-size: 1.2rem;
+        }
+        
+        .actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
         }
         
         .canvas-container {
@@ -128,23 +183,18 @@
         }
         
         .instructions {
-            position: fixed;
-            bottom: 20px;
-            left: 0;
-            width: 100%;
             text-align: center;
             font-size: 1rem;
-            color: rgba(255, 255, 255, 0.8);
-            z-index: 10;
-            padding: 0 15px;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 15px 0;
         }
         
         footer {
-            margin-top: 30px;
             text-align: center;
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.7);
             z-index: 10;
+            margin-top: 20px;
         }
         
         @media (max-width: 600px) {
@@ -152,47 +202,75 @@
                 font-size: 2.2rem;
             }
             
-            .description {
-                font-size: 1rem;
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .message {
+                font-size: 1.1rem;
             }
             
             .btn {
                 padding: 12px 20px;
                 font-size: 1rem;
             }
+            
+            .container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Flores Amarillas Animadas 💛</h1>
-        <p class="description">Una animación creada con HTML, CSS y JavaScript para GitHub Pages. ¡Toca la pantalla para agregar más flores!</p>
+    <div class="container">
+        <header>
+            <h1>💛 Flores Amarillas 💛</h1>
+            <div class="subtitle">21 de Septiembre - Día para dedicar</div>
+        </header>
         
-        <div class="github-info">
-            <p><i class="fab fa-github"></i> Subido a tu repositorio de GitHub</p>
-            <p><i class="fas fa-check-circle"></i> GitHub Pages activado</p>
+        <div class="dedication-box">
+            <p class="message" id="message">En este día especial, te envío estas flores amarillas como símbolo de amistad, cariño y los buenos momentos que compartimos. Que iluminen tu día como tú iluminas el mío.</p>
+            <p class="from" id="from">- Para: [Nombre]</p>
         </div>
         
-        <div class="controls">
-            <button class="btn" id="moreFlowers"><i class="fas fa-plus"></i> Más Flores</button>
-            <button class="btn" id="changeSpeed"><i class="fas fa-tachometer-alt"></i> Cambiar Velocidad</button>
+        <div class="customize">
+            <h3><i class="fas fa-edit"></i> Personaliza tu dedicatoria</h3>
+            
+            <div class="form-group">
+                <label for="forName">Para:</label>
+                <input type="text" id="forName" placeholder="Nombre de la persona" value="Mi persona especial">
+            </div>
+            
+            <div class="form-group">
+                <label for="messageText">Mensaje:</label>
+                <textarea id="messageText">En este día especial, te envío estas flores amarillas como símbolo de amistad, cariño y los buenos momentos que compartimos. Que iluminen tu día como tú iluminas el mío.</textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="fromName">De:</label>
+                <input type="text" id="fromName" placeholder="Tu nombre" value="Alguien que te aprecia">
+            </div>
+            
+            <button class="btn" id="updateBtn"><i class="fas fa-sync-alt"></i> Actualizar Dedicatoria</button>
+        </div>
+        
+        <div class="actions">
             <button class="btn" id="shareBtn"><i class="fas fa-share-alt"></i> Compartir</button>
+            <button class="btn" id="addFlowersBtn"><i class="fas fa-plus"></i> Más Flores</button>
+            <button class="btn" id="resetBtn"><i class="fas fa-redo"></i> Reiniciar</button>
         </div>
-    </header>
+        
+        <p class="instructions">Toca en cualquier lugar de la pantalla para agregar más flores amarillas</p>
+    </div>
     
     <div class="canvas-container" id="flowerContainer"></div>
     
-    <div class="instructions">
-        <p>Toca cualquier lugar de la pantalla para agregar un grupo de flores en ese lugar</p>
-    </div>
-    
     <footer>
-        <p>Creado con ❤️ usando HTML, CSS y JavaScript | Hecho para GitHub Pages</p>
+        <p>Dedicado con ❤️ el 21 de Septiembre - Día de las Flores Amarillas</p>
     </footer>
 
     <script>
         // Configuración
-        let animationSpeed = 2;
         let flowerDensity = 1;
         
         // Función para crear flores
@@ -200,8 +278,8 @@
             const flower = document.createElement('div');
             flower.className = 'flower';
             
-            // Usar emojis de flores o elementos SVG
-            const flowers = ['🌼', '🌻', '🌸', '💮', '🏵️'];
+            // Usar emojis de flores amarillas
+            const flowers = ['🌼', '🌻', '💮', '🏵️'];
             flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
             
             // Posición inicial
@@ -216,7 +294,7 @@
             flower.style.fontSize = size + 'px';
             
             // Duración de la animación
-            const duration = (Math.random() * 5 + 5) / animationSpeed;
+            const duration = Math.random() * 5 + 5;
             flower.style.animationDuration = duration + 's';
             
             // Añadir la flor al contenedor
@@ -232,13 +310,11 @@
         
         // Crear flores automáticamente
         function createAutoFlowers() {
-            const interval = 500 / (flowerDensity * animationSpeed);
-            
             setInterval(() => {
                 for (let i = 0; i < flowerDensity; i++) {
                     createFlower(0, 0);
                 }
-            }, interval);
+            }, 500);
         }
         
         // Iniciar la lluvia de flores
@@ -246,7 +322,7 @@
         
         // Agregar flores al tocar/hacer clic en la pantalla
         document.addEventListener('click', (e) => {
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 5; i++) {
                 setTimeout(() => {
                     createFlower(e.clientX, e.clientY, true);
                 }, i * 100);
@@ -257,31 +333,63 @@
         document.addEventListener('touchstart', (e) => {
             e.preventDefault();
             const touch = e.touches[0];
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 5; i++) {
                 setTimeout(() => {
                     createFlower(touch.clientX, touch.clientY, true);
                 }, i * 100);
             }
         });
         
-        // Controladores de botones
-        document.getElementById('moreFlowers').addEventListener('click', function() {
+        // Actualizar dedicatoria
+        document.getElementById('updateBtn').addEventListener('click', function() {
+            const forName = document.getElementById('forName').value || 'Mi persona especial';
+            const messageText = document.getElementById('messageText').value || 'Te envío estas flores amarillas en este día especial.';
+            const fromName = document.getElementById('fromName').value || 'Alguien que te aprecia';
+            
+            document.getElementById('message').textContent = messageText;
+            document.getElementById('from').textContent = `- Para: ${forName} | De: ${fromName}`;
+            
+            alert('¡Dedicatoria actualizada!');
+        });
+        
+        // Más flores
+        document.getElementById('addFlowersBtn').addEventListener('click', function() {
             flowerDensity += 0.5;
             if (flowerDensity > 5) flowerDensity = 1;
+            
+            // Agregar flores inmediatamente
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    createFlower(0, 0);
+                }, i * 100);
+            }
+            
             this.innerHTML = `<i class="fas fa-plus"></i> Flores: ${flowerDensity}x`;
         });
         
-        document.getElementById('changeSpeed').addEventListener('click', function() {
-            animationSpeed += 0.5;
-            if (animationSpeed > 3) animationSpeed = 1;
-            this.innerHTML = `<i class="fas fa-tachometer-alt"></i> Velocidad: ${animationSpeed}x`;
+        // Reiniciar
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            document.getElementById('forName').value = 'Mi persona especial';
+            document.getElementById('messageText').value = 'En este día especial, te envío estas flores amarillas como símbolo de amistad, cariño y los buenos momentos que compartimos. Que iluminen tu día como tú iluminas el mío.';
+            document.getElementById('fromName').value = 'Alguien que te aprecia';
+            
+            document.getElementById('message').textContent = document.getElementById('messageText').value;
+            document.getElementById('from').textContent = '- Para: Mi persona especial';
+            
+            flowerDensity = 1;
+            document.getElementById('addFlowersBtn').innerHTML = '<i class="fas fa-plus"></i> Más Flores';
+            
+            alert('¡Dedicatoria reiniciada!');
         });
         
+        // Compartir
         document.getElementById('shareBtn').addEventListener('click', function() {
+            const forName = document.getElementById('forName').value || 'Mi persona especial';
+            
             if (navigator.share) {
                 navigator.share({
-                    title: 'Flores Amarillas Animadas',
-                    text: 'Mira esta hermosa animación de flores amarillas en GitHub Pages',
+                    title: `Flores Amarillas para ${forName}`,
+                    text: `Te he dedicado flores amarillas para el 21 de septiembre. Mira esta dedicatoria especial: ${document.getElementById('messageText').value.substring(0, 100)}...`,
                     url: window.location.href
                 })
                 .catch(error => {
@@ -292,14 +400,12 @@
             }
         });
         
-        // Efecto de inicialización
-        window.onload = function() {
-            for (let i = 0; i < 20; i++) {
-                setTimeout(() => {
-                    createFlower(0, 0);
-                }, i * 100);
-            }
-        };
+        // Efecto de inicialización - Flores iniciales
+        for (let i = 0; i < 20; i++) {
+            setTimeout(() => {
+                createFlower(0, 0);
+            }, i * 100);
+        }
     </script>
 </body>
 </html>
