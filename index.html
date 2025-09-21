@@ -44,70 +44,63 @@
             margin: 0 auto;
         }
         
-        /* Tallos */
-        .stem {
+        /* Tallos con flores unidas */
+        .flower-with-stem {
             position: absolute;
-            bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            animation: appear 1.5s forwards;
+            z-index: 10;
+        }
+        
+        .stem {
             width: 6px;
-            height: 0;
             background: linear-gradient(to top, #2e7d32, #1b5e20);
             border-radius: 3px;
-            transform-origin: bottom center;
-            animation: growStem 1.5s forwards;
-            opacity: 0;
             z-index: 5;
         }
         
-        @keyframes growStem {
-            to {
-                opacity: 1;
-            }
-        }
-        
-        /* Flores - Girasoles */
         .flower {
-            position: absolute;
-            font-size: 0;
+            font-size: 3.8rem;
             color: #FFD700;
             filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
-            opacity: 0;
-            animation: growFlower 1.2s forwards;
+            margin-bottom: -15px;
             z-index: 10;
-            transform-origin: bottom center;
         }
         
-        @keyframes growFlower {
+        @keyframes appear {
             to {
-                font-size: 3.8rem;
                 opacity: 1;
             }
         }
         
         /* Posiciones para formar un ramo compacto */
-        .stem:nth-child(1), .flower:nth-child(1) { left: 170px; height: 200px; animation-delay: 0.3s; }
-        .stem:nth-child(2), .flower:nth-child(2) { left: 140px; height: 190px; animation-delay: 0.6s; }
-        .stem:nth-child(3), .flower:nth-child(3) { left: 200px; height: 195px; animation-delay: 0.9s; }
-        .stem:nth-child(4), .flower:nth-child(4) { left: 120px; height: 185px; animation-delay: 1.2s; }
-        .stem:nth-child(5), .flower:nth-child(5) { left: 220px; height: 180px; animation-delay: 1.5s; }
-        .stem:nth-child(6), .flower:nth-child(6) { left: 100px; height: 205px; animation-delay: 1.8s; }
-        .stem:nth-child(7), .flower:nth-child(7) { left: 240px; height: 175px; animation-delay: 2.1s; }
-        .stem:nth-child(8), .flower:nth-child(8) { left: 160px; height: 195px; animation-delay: 2.4s; }
-        .stem:nth-child(9), .flower:nth-child(9) { left: 180px; height: 190px; animation-delay: 2.7s; }
-        .stem:nth-child(10), .flower:nth-child(10) { left: 130px; height: 185px; animation-delay: 3.0s; }
-        .stem:nth-child(11), .flower:nth-child(11) { left: 210px; height: 200px; animation-delay: 3.3s; }
+        .flower-with-stem:nth-child(1) { left: 170px; bottom: 80px; animation-delay: 0.3s; }
+        .flower-with-stem:nth-child(2) { left: 140px; bottom: 70px; animation-delay: 0.6s; }
+        .flower-with-stem:nth-child(3) { left: 200px; bottom: 75px; animation-delay: 0.9s; }
+        .flower-with-stem:nth-child(4) { left: 120px; bottom: 65px; animation-delay: 1.2s; }
+        .flower-with-stem:nth-child(5) { left: 220px; bottom: 60px; animation-delay: 1.5s; }
+        .flower-with-stem:nth-child(6) { left: 100px; bottom: 85px; animation-delay: 1.8s; }
+        .flower-with-stem:nth-child(7) { left: 240px; bottom: 55px; animation-delay: 2.1s; }
+        .flower-with-stem:nth-child(8) { left: 160px; bottom: 75px; animation-delay: 2.4s; }
+        .flower-with-stem:nth-child(9) { left: 180px; bottom: 70px; animation-delay: 2.7s; }
+        .flower-with-stem:nth-child(10) { left: 130px; bottom: 65px; animation-delay: 3.0s; }
+        .flower-with-stem:nth-child(11) { left: 210px; bottom: 80px; animation-delay: 3.3s; }
         
-        /* Posiciones verticales de las flores */
-        .flower:nth-child(1) { bottom: 280px; }
-        .flower:nth-child(2) { bottom: 270px; }
-        .flower:nth-child(3) { bottom: 275px; }
-        .flower:nth-child(4) { bottom: 265px; }
-        .flower:nth-child(5) { bottom: 260px; }
-        .flower:nth-child(6) { bottom: 285px; }
-        .flower:nth-child(7) { bottom: 255px; }
-        .flower:nth-child(8) { bottom: 275px; }
-        .flower:nth-child(9) { bottom: 270px; }
-        .flower:nth-child(10) { bottom: 265px; }
-        .flower:nth-child(11) { bottom: 280px; }
+        /* Alturas de los tallos */
+        .flower-with-stem:nth-child(1) .stem { height: 200px; }
+        .flower-with-stem:nth-child(2) .stem { height: 190px; }
+        .flower-with-stem:nth-child(3) .stem { height: 195px; }
+        .flower-with-stem:nth-child(4) .stem { height: 185px; }
+        .flower-with-stem:nth-child(5) .stem { height: 180px; }
+        .flower-with-stem:nth-child(6) .stem { height: 205px; }
+        .flower-with-stem:nth-child(7) .stem { height: 175px; }
+        .flower-with-stem:nth-child(8) .stem { height: 195px; }
+        .flower-with-stem:nth-child(9) .stem { height: 190px; }
+        .flower-with-stem:nth-child(10) .stem { height: 185px; }
+        .flower-with-stem:nth-child(11) .stem { height: 200px; }
         
         /* Envoltura del ramo */
         .wrapping {
@@ -218,30 +211,51 @@
         <h1 class="title">Feliz 21 de Septiembre</h1>
         
         <div class="bouquet-container">
-            <!-- Tallos y flores -->
-            <div class="stem"></div>
-            <div class="stem"></div>
-            <div class="stem"></div>
-            <div class="stem"></div>
-            <div class="stem"></div>
-            <div class="stem"></div>
-            <div class="stem"></div>
-            <div class="stem"></div>
-            <div class="stem"></div>
-            <div class="stem"></div>
-            <div class="stem"></div>
-            
-            <div class="flower">🌻</div>
-            <div class="flower">🌻</div>
-            <div class="flower">🌻</div>
-            <div class="flower">🌻</div>
-            <div class="flower">🌻</div>
-            <div class="flower">🌻</div>
-            <div class="flower">🌻</div>
-            <div class="flower">🌻</div>
-            <div class="flower">🌻</div>
-            <div class="flower">🌻</div>
-            <div class="flower">🌻</div>
+            <!-- Flores con tallos unidos -->
+            <div class="flower-with-stem">
+                <div class="flower">🌻</div>
+                <div class="stem"></div>
+            </div>
+            <div class="flower-with-stem">
+                <div class="flower">🌻</div>
+                <div class="stem"></div>
+            </div>
+            <div class="flower-with-stem">
+                <div class="flower">🌻</div>
+                <div class="stem"></div>
+            </div>
+            <div class="flower-with-stem">
+                <div class="flower">🌻</div>
+                <div class="stem"></div>
+            </div>
+            <div class="flower-with-stem">
+                <div class="flower">🌻</div>
+                <div class="stem"></div>
+            </div>
+            <div class="flower-with-stem">
+                <div class="flower">🌻</div>
+                <div class="stem"></div>
+            </div>
+            <div class="flower-with-stem">
+                <div class="flower">🌻</div>
+                <div class="stem"></div>
+            </div>
+            <div class="flower-with-stem">
+                <div class="flower">🌻</div>
+                <div class="stem"></div>
+            </div>
+            <div class="flower-with-stem">
+                <div class="flower">🌻</div>
+                <div class="stem"></div>
+            </div>
+            <div class="flower-with-stem">
+                <div class="flower">🌻</div>
+                <div class="stem"></div>
+            </div>
+            <div class="flower-with-stem">
+                <div class="flower">🌻</div>
+                <div class="stem"></div>
+            </div>
             
             <div class="wrapping"></div>
             <div class="ribbon">Para Ti</div>
