@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Amarillas Animadas | GitHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 25px 0;
+            width: 100%;
+            max-width: 800px;
+            z-index: 10;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+            color: #FFEB3B;
+        }
+        
+        .description {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .github-info {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 20px 0;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .btn {
+            background: linear-gradient(to right, #FFC107, #FFEB3B);
+            color: #333;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .btn i {
+            font-size: 1.2rem;
+        }
+        
+        .canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .flower {
+            position: absolute;
+            font-size: 24px;
+            color: #FFEB3B;
+            text-shadow: 0 0 10px rgba(255, 235, 59, 0.7);
+            user-select: none;
+            opacity: 0;
+            animation: fall linear forwards;
+        }
+        
+        @keyframes fall {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        .instructions {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            z-index: 10;
+            padding: 0 15px;
+        }
+        
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            z-index: 10;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .description {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Flores Amarillas Animadas 💛</h1>
+        <p class="description">Una animación creada con HTML, CSS y JavaScript para GitHub Pages. ¡Toca la pantalla para agregar más flores!</p>
+        
+        <div class="github-info">
+            <p><i class="fab fa-github"></i> Subido a tu repositorio de GitHub</p>
+            <p><i class="fas fa-check-circle"></i> GitHub Pages activado</p>
+        </div>
+        
+        <div class="controls">
+            <button class="btn" id="moreFlowers"><i class="fas fa-plus"></i> Más Flores</button>
+            <button class="btn" id="changeSpeed"><i class="fas fa-tachometer-alt"></i> Cambiar Velocidad</button>
+            <button class="btn" id="shareBtn"><i class="fas fa-share-alt"></i> Compartir</button>
+        </div>
+    </header>
+    
+    <div class="canvas-container" id="flowerContainer"></div>
+    
+    <div class="instructions">
+        <p>Toca cualquier lugar de la pantalla para agregar un grupo de flores en ese lugar</p>
+    </div>
+    
+    <footer>
+        <p>Creado con ❤️ usando HTML, CSS y JavaScript | Hecho para GitHub Pages</p>
+    </footer>
+
+    <script>
+        // Configuración
+        let animationSpeed = 2;
+        let flowerDensity = 1;
+        
+        // Función para crear flores
+        function createFlower(x, y, isManual = false) {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            
+            // Usar emojis de flores o elementos SVG
+            const flowers = ['🌼', '🌻', '🌸', '💮', '🏵️'];
+            flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+            
+            // Posición inicial
+            const posX = isManual ? x - 15 + Math.random() * 30 : Math.random() * window.innerWidth;
+            const posY = isManual ? y - 15 + Math.random() * 30 : -50;
+            
+            flower.style.left = posX + 'px';
+            flower.style.top = posY + 'px';
+            
+            // Tamaño aleatorio
+            const size = Math.random() * 25 + 15;
+            flower.style.fontSize = size + 'px';
+            
+            // Duración de la animación
+            const duration = (Math.random() * 5 + 5) / animationSpeed;
+            flower.style.animationDuration = duration + 's';
+            
+            // Añadir la flor al contenedor
+            document.getElementById('flowerContainer').appendChild(flower);
+            
+            // Eliminar la flor cuando termine la animación
+            setTimeout(() => {
+                if (flower.parentNode) {
+                    flower.remove();
+                }
+            }, duration * 1000);
+        }
+        
+        // Crear flores automáticamente
+        function createAutoFlowers() {
+            const interval = 500 / (flowerDensity * animationSpeed);
+            
+            setInterval(() => {
+                for (let i = 0; i < flowerDensity; i++) {
+                    createFlower(0, 0);
+                }
+            }, interval);
+        }
+        
+        // Iniciar la lluvia de flores
+        createAutoFlowers();
+        
+        // Agregar flores al tocar/hacer clic en la pantalla
+        document.addEventListener('click', (e) => {
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    createFlower(e.clientX, e.clientY, true);
+                }, i * 100);
+            }
+        });
+        
+        // Agregar flores al tocar la pantalla en dispositivos táctiles
+        document.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    createFlower(touch.clientX, touch.clientY, true);
+                }, i * 100);
+            }
+        });
+        
+        // Controladores de botones
+        document.getElementById('moreFlowers').addEventListener('click', function() {
+            flowerDensity += 0.5;
+            if (flowerDensity > 5) flowerDensity = 1;
+            this.innerHTML = `<i class="fas fa-plus"></i> Flores: ${flowerDensity}x`;
+        });
+        
+        document.getElementById('changeSpeed').addEventListener('click', function() {
+            animationSpeed += 0.5;
+            if (animationSpeed > 3) animationSpeed = 1;
+            this.innerHTML = `<i class="fas fa-tachometer-alt"></i> Velocidad: ${animationSpeed}x`;
+        });
+        
+        document.getElementById('shareBtn').addEventListener('click', function() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Flores Amarillas Animadas',
+                    text: 'Mira esta hermosa animación de flores amarillas en GitHub Pages',
+                    url: window.location.href
+                })
+                .catch(error => {
+                    alert('Enlace listo para compartir: ' + window.location.href);
+                });
+            } else {
+                alert('Enlace listo para compartir: ' + window.location.href);
+            }
+        });
+        
+        // Efecto de inicialización
+        window.onload = function() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    createFlower(0, 0);
+                }, i * 100);
+            }
+        };
+    </script>
+</body>
+</html>
