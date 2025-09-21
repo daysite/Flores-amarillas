@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flores para Ti - 21 de Septiembre</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Flores Amarillas - 21 de Septiembre</title>
     <style>
         * {
             margin: 0;
@@ -15,69 +14,27 @@
         body {
             background: #000;
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: white;
+            color: #FFEB3B;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             text-align: center;
             padding: 20px;
-            position: relative;
-        }
-        
-        .header {
-            margin: 30px 0;
-            z-index: 20;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 25px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 235, 59, 0.3);
-            max-width: 90%;
-            backdrop-filter: blur(5px);
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            color: #FFEB3B;
-            text-shadow: 0 0 15px rgba(255, 235, 59, 0.7);
-        }
-        
-        .date {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #FFD700;
         }
         
         .message {
-            font-size: 1.3rem;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto 25px;
-            color: #fff;
-        }
-        
-        .heart {
-            color: #ff4d4d;
-            display: inline-block;
-            animation: pulse 1.5s infinite;
-            margin: 0 5px;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-        
-        .flower-container {
-            position: relative;
-            width: 100%;
-            height: 50vh;
-            max-width: 800px;
-            margin: 20px auto;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            max-width: 90%;
+            text-shadow: 0 0 10px rgba(255, 235, 59, 0.7);
             z-index: 10;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 235, 59, 0.3);
         }
         
         .flower {
@@ -87,21 +44,12 @@
             transition: all 3s ease-in-out;
             filter: drop-shadow(0 0 8px rgba(255, 235, 59, 0.9));
             z-index: 5;
+            color: #FFEB3B;
         }
         
         .flower.show {
             font-size: 40px;
             opacity: 1;
-        }
-        
-        .falling-flowers {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 2;
         }
         
         .falling-flower {
@@ -112,6 +60,7 @@
             opacity: 0.7;
             animation: fall linear forwards;
             z-index: 2;
+            filter: drop-shadow(0 0 5px rgba(255, 235, 59, 0.7));
         }
         
         @keyframes fall {
@@ -121,146 +70,76 @@
             }
         }
         
-        .controls {
-            margin: 30px 0;
-            z-index: 20;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .btn {
-            background: linear-gradient(to right, #FFC107, #FFEB3B);
-            color: #000;
-            border: none;
-            padding: 14px 28px;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            box-shadow: 0 0 15px rgba(255, 235, 59, 0.5);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(255, 235, 59, 0.7);
-        }
-        
-        .progress {
-            width: 100%;
-            max-width: 500px;
-            height: 10px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            margin: 20px 0;
-            overflow: hidden;
-            z-index: 20;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(to right, #FFC107, #FFEB3B);
-            border-radius: 10px;
-            transition: width 0.5s ease;
-        }
-        
         .footer {
-            margin-top: 20px;
+            position: fixed;
+            bottom: 20px;
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 235, 59, 0.7);
             z-index: 20;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .heart {
+            color: #ff4d4d;
+            display: inline-block;
         }
         
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .date {
-                font-size: 1.3rem;
-            }
-            
             .message {
-                font-size: 1.1rem;
-            }
-            
-            .btn {
-                padding: 12px 24px;
                 font-size: 1rem;
             }
-        }
-        
-        .for {
-            font-size: 1.2rem;
-            margin-top: 15px;
-            color: #FFD700;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Flores para Ti <span class="heart">💛</span></h1>
-        <div class="date">21 de Septiembre</div>
-        <div class="message">
-            A veces las cosas más bellas no se dicen con palabras,<br> 
-            se expresan con pequeños detalles que vienen del corazón.
-        </div>
-        <div class="for">Para: <span id="recipientName">Ella</span></div>
-    </div>
-    
-    <div class="flower-container" id="flowerContainer"></div>
-    
-    <div class="progress">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
-    
-    <div class="controls">
-        <button class="btn" id="startBtn"><i class="fas fa-play"></i> Iniciar Flores</button>
-        <button class="btn" id="resetBtn"><i class="fas fa-redo"></i> Reiniciar</button>
-        <button class="btn" id="personalizeBtn"><i class="fas fa-edit"></i> Personalizar</button>
+    <div class="message">
+        <h2>Para ti en este 21 de septiembre</h2>
+        <p>Las flores amarillas iluminan mi día,<br>como tú iluminas mi vida.</p>
     </div>
     
     <div class="footer">
-        Hecho con <span class="heart">❤️</span> para el 21 de septiembre
+        Hecho con <span class="heart">❤️</span> para ti
     </div>
-    
-    <div class="falling-flowers" id="fallingFlowers"></div>
 
     <script>
         // Configuración
-        const flowers = ['🌼', '🌻', '💮', '🏵️'];
-        const totalFlowers = 50;
+        const flowers = ['🌼', '🌻']; // Solo flores amarillas
+        const totalFlowers = 40;
         let flowersCreated = 0;
         let fallingInterval;
         
-        // Elementos DOM
-        const flowerContainer = document.getElementById('flowerContainer');
-        const progressBar = document.getElementById('progressBar');
-        const startBtn = document.getElementById('startBtn');
-        const resetBtn = document.getElementById('resetBtn');
-        const personalizeBtn = document.getElementById('personalizeBtn');
-        const fallingFlowers = document.getElementById('fallingFlowers');
-        const recipientNameEl = document.getElementById('recipientName');
+        // Crear contenedores
+        const flowerContainer = document.createElement('div');
+        flowerContainer.style.position = 'fixed';
+        flowerContainer.style.top = '0';
+        flowerContainer.style.left = '0';
+        flowerContainer.style.width = '100%';
+        flowerContainer.style.height = '100%';
+        flowerContainer.style.pointerEvents = 'none';
+        document.body.appendChild(flowerContainer);
+        
+        const fallingFlowers = document.createElement('div');
+        fallingFlowers.style.position = 'fixed';
+        fallingFlowers.style.top = '0';
+        fallingFlowers.style.left = '0';
+        fallingFlowers.style.width = '100%';
+        fallingFlowers.style.height = '100%';
+        fallingFlowers.style.pointerEvents = 'none';
+        fallingFlowers.style.zIndex = '1';
+        document.body.appendChild(fallingFlowers);
         
         // Función para crear una flor que aparece gradualmente
         function createFlower() {
-            if (flowersCreated >= totalFlowers) return;
-            
             const flower = document.createElement('div');
             flower.className = 'flower';
             
-            // Seleccionar un emoji de flor aleatorio
+            // Seleccionar un emoji de flor amarilla
             flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
             
             // Posición aleatoria
-            const posX = Math.random() * 90;
-            const posY = Math.random() * 80;
+            const posX = Math.random() * 85 + 5;
+            const posY = Math.random() * 70 + 15;
             
             flower.style.left = `${posX}%`;
             flower.style.top = `${posY}%`;
@@ -275,20 +154,20 @@
             
             flowerContainer.appendChild(flower);
             
-            // Mostrar la flor gradualmente después de un pequeño retraso
+            // Mostrar la flor gradualmente
             setTimeout(() => {
                 flower.classList.add('show');
             }, 100);
             
-            flowersCreated++;
-            
-            // Actualizar barra de progreso
-            progressBar.style.width = `${(flowersCreated / totalFlowers) * 100}%`;
-            
-            // Crear más flores hasta alcanzar el total
-            if (flowersCreated < totalFlowers) {
-                setTimeout(createFlower, 300);
-            }
+            // Ocultar y eliminar la flor después de un tiempo
+            setTimeout(() => {
+                flower.classList.remove('show');
+                setTimeout(() => {
+                    if (flower.parentNode) {
+                        flower.remove();
+                    }
+                }, 3000);
+            }, 15000);
         }
         
         // Función para crear flores que caen
@@ -313,7 +192,9 @@
             
             // Eliminar la flor después de que termine la animación
             setTimeout(() => {
-                fallingFlower.remove();
+                if (fallingFlower.parentNode) {
+                    fallingFlower.remove();
+                }
             }, duration * 1000);
         }
         
@@ -330,59 +211,40 @@
             fallingInterval = setInterval(createFallingFlower, 800);
         }
         
-        // Detener la lluvia de flores
-        function stopFallingFlowers() {
-            clearInterval(fallingInterval);
-        }
-        
-        // Reiniciar la animación
-        function resetAnimation() {
-            // Detener flores que caen
-            stopFallingFlowers();
-            
-            // Eliminar todas las flores
-            while (flowerContainer.firstChild) {
-                flowerContainer.removeChild(flowerContainer.firstChild);
+        // Iniciar flores que aparecen gradualmente
+        function startFlowers() {
+            // Crear flores iniciales
+            for (let i = 0; i < totalFlowers; i++) {
+                setTimeout(() => {
+                    createFlower();
+                }, i * 500);
             }
             
-            while (fallingFlowers.firstChild) {
-                fallingFlowers.removeChild(fallingFlowers.firstChild);
-            }
-            
-            // Reiniciar contadores
-            flowersCreated = 0;
-            progressBar.style.width = '0%';
-            
-            // Ocultar botón de reinicio y mostrar botón de inicio
-            startBtn.style.display = 'flex';
-        }
-        
-        // Personalizar la dedicatoria
-        function personalize() {
-            const name = prompt('¿Cómo se llama ella?', 'Ella');
-            if (name) {
-                recipientNameEl.textContent = name;
+            // Regenerar flores continuamente
+            setInterval(() => {
+                // Contar flores actuales
+                const currentFlowers = flowerContainer.childElementCount;
                 
-                const message = prompt('Escribe un mensaje personalizado:', 'A veces las cosas más bellas no se dicen con palabras, se expresan con pequeños detalles que vienen del corazón.');
-                if (message) {
-                    document.querySelector('.message').textContent = message;
+                // Crear nuevas flores si es necesario
+                if (currentFlowers < totalFlowers) {
+                    for (let i = 0; i < (totalFlowers - currentFlowers); i++) {
+                        setTimeout(() => {
+                            createFlower();
+                        }, i * 500);
+                    }
                 }
-            }
+            }, 5000);
         }
         
-        // Event Listeners
-        startBtn.addEventListener('click', () => {
-            createFlower();
-            startFallingFlowers();
-            startBtn.style.display = 'none';
-        });
-        
-        resetBtn.addEventListener('click', resetAnimation);
-        
-        personalizeBtn.addEventListener('click', personalize);
-        
-        // Iniciar la lluvia de flores al cargar la página
+        // Iniciar todas las animaciones
+        startFlowers();
         startFallingFlowers();
+        
+        // Ajustar para dispositivos móviles
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            document.querySelector('.message').style.fontSize = '1rem';
+            document.querySelector('.message h2').style.fontSize = '1.4rem';
+        }
     </script>
 </body>
 </html>
