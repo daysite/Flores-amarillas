@@ -18,7 +18,7 @@
             justify-content: center;
             align-items: center;
             font-family: 'Arial', sans-serif;
-            overflow-x: hidden;
+            overflow: hidden;
             color: white;
             padding: 20px;
         }
@@ -315,25 +315,40 @@
         .music-control:hover + .music-info {
             opacity: 1;
         }
+        
+        /* Nota musical */
+        .music-note {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: #FFD700;
+            font-size: 24px;
+            animation: bounce 2s infinite;
+            z-index: 101;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="particles" id="particles"></div>
     
-    <!-- Control de música -->
-    <div class="music-control" id="musicControl">
-        <i class="fas fa-play" id="musicIcon"></i>
-    </div>
-    <div class="music-info">
-        Haz clic para reproducir "Feliz Primavera" de Diego Verdaguer
+    <!-- Nota musical flotante -->
+    <div class="music-note">
+        <i class="fas fa-music"></i>
     </div>
     
-    <!-- Audio para la canción -->
-    <audio id="backgroundMusic" loop>
-        <source src="https://audio.jukehost.co.uk/4t1h2Q3q7Q3YwU0f3i8W8Q2f9G8k8U8A" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
+    <!-- Control de música -->
+    <div class="music-control" id="musicControl">
+        <i class="fas fa-pause" id="musicIcon"></i>
+    </div>
+    <div class="music-info">
+        "Florecen Flores Amarillas" - Reproduciéndose
+    </div>
     
     <div class="container">
         <h1 class="title">Feliz 21 de Septiembre</h1>
@@ -436,6 +451,9 @@
         </div>
     </div>
 
+    <!-- Reproductor de audio oculto pero funcional -->
+    <iframe id="audioPlayer" style="display:none;" src="https://www.youtube.com/embed/S7gMzYqXIZc?autoplay=1&loop=1&playlist=S7gMzYqXIZc&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
     <script>
         // Crear partículas de fondo
         function createParticles() {
@@ -468,41 +486,31 @@
         // Control de música
         const musicControl = document.getElementById('musicControl');
         const musicIcon = document.getElementById('musicIcon');
-        const backgroundMusic = document.getElementById('backgroundMusic');
-        let musicPlaying = false;
+        const audioPlayer = document.getElementById('audioPlayer');
+        let musicPlaying = true;
         
         musicControl.addEventListener('click', function() {
             if (musicPlaying) {
-                backgroundMusic.pause();
+                // Pausar música
+                audioPlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
                 musicIcon.classList.remove('fa-pause');
                 musicIcon.classList.add('fa-play');
             } else {
-                backgroundMusic.play().catch(error => {
-                    console.log('La reproducción automática fue prevenida:', error);
-                });
+                // Reproducir música
+                audioPlayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
                 musicIcon.classList.remove('fa-play');
                 musicIcon.classList.add('fa-pause');
             }
             musicPlaying = !musicPlaying;
         });
         
-        // Intentar reproducir automáticamente (puede que no funcione en algunos navegadores)
-        window.addEventListener('load', function() {
-            createParticles();
-            
-            // Intentar reproducir música automáticamente (con muted para cumplir políticas)
-            backgroundMusic.muted = true;
-            backgroundMusic.play().then(() => {
-                // Si se reproduce con éxito, activar sonido
-                backgroundMusic.muted = false;
-                musicPlaying = true;
-                musicIcon.classList.remove('fa-play');
-                musicIcon.classList.add('fa-pause');
-            }).catch(error => {
-                console.log('Reproducción automática prevenida. El usuario debe interactuar primero.');
-                backgroundMusic.muted = false;
-            });
-        });
+        // Inicializar efectos
+        window.addEventListener('load', createParticles);
+        
+        // Forzar la reproducción automática
+        window.addEventListener('click', function() {
+            audioPlayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        }, { once: true });
     </script>
 </body>
 </html>
