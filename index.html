@@ -18,28 +18,26 @@
             justify-content: center;
             align-items: center;
             font-family: 'Arial', sans-serif;
-            overflow: hidden;
+            overflow-x: hidden;
             color: white;
+            padding: 20px;
         }
         
         .container {
             text-align: center;
             position: relative;
             z-index: 20;
-            padding: 20px;
             width: 100%;
-            max-width: 500px;
+            max-width: 400px;
         }
         
         .title {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             color: #FFD700;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
             font-weight: bold;
-            opacity: 0;
             animation: fadeIn 2s forwards;
-            animation-delay: 0.5s;
         }
         
         @keyframes fadeIn {
@@ -48,9 +46,9 @@
         
         .bouquet-container {
             position: relative;
-            width: 380px;
-            height: 480px;
-            margin: 0 auto;
+            width: 320px;
+            height: 380px;
+            margin: 10px auto;
         }
         
         /* Flores con tallos y hojas */
@@ -59,28 +57,27 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            opacity: 0;
             z-index: 10;
         }
         
         .flower {
-            font-size: 3.2rem;
+            font-size: 2.5rem;
             color: #FFD700;
             filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
-            margin-bottom: -12px;
+            margin-bottom: -10px;
             z-index: 12;
             opacity: 0;
             transform: scale(0);
-            animation: growFlower 3s forwards;
+            animation: growFlower 2s forwards;
         }
         
         .stem {
-            width: 6px;
+            width: 5px;
             background: linear-gradient(to top, #2e7d32, #1b5e20);
             border-radius: 3px;
             z-index: 5;
             height: 0;
-            animation: growStem 2.5s forwards;
+            animation: growStem 1.5s forwards;
         }
         
         .leaf {
@@ -91,98 +88,86 @@
             border-radius: 0 50% 50% 0;
             z-index: 6;
             opacity: 0;
-            animation: growLeaf 2s forwards;
+            animation: growLeaf 1.5s forwards;
         }
         
-        /* Animaciones más lentas */
+        /* Animaciones */
         @keyframes growStem {
             to { height: var(--stem-height); }
         }
         
         @keyframes growFlower {
-            0% { opacity: 0; transform: scale(0); }
-            50% { opacity: 0.8; transform: scale(1.1); }
-            100% { opacity: 1; transform: scale(1); }
+            to { opacity: 1; transform: scale(1); }
         }
         
         @keyframes growLeaf {
             to { 
-                width: 28px; 
-                height: 16px; 
+                width: 22px; 
+                height: 12px; 
                 opacity: 0.9; 
             }
         }
         
-        /* Posiciones perfectamente centradas */
-        .flower-with-stem:nth-child(1) { left: 50%; margin-left: -80px; bottom: 70px; }
-        .flower-with-stem:nth-child(2) { left: 50%; margin-left: -40px; bottom: 65px; }
-        .flower-with-stem:nth-child(3) { left: 50%; margin-left: 0px; bottom: 68px; }
-        .flower-with-stem:nth-child(4) { left: 50%; margin-left: 40px; bottom: 62px; }
-        .flower-with-stem:nth-child(5) { left: 50%; margin-left: 80px; bottom: 60px; }
-        .flower-with-stem:nth-child(6) { left: 50%; margin-left: -60px; bottom: 75px; }
-        .flower-with-stem:nth-child(7) { left: 50%; margin-left: 60px; bottom: 58px; }
-        .flower-with-stem:nth-child(8) { left: 50%; margin-left: -20px; bottom: 68px; }
-        .flower-with-stem:nth-child(9) { left: 50%; margin-left: 20px; bottom: 65px; }
+        /* Posiciones centradas y ajustadas */
+        .flower-with-stem:nth-child(1) { left: 50%; margin-left: -60px; bottom: 60px; }
+        .flower-with-stem:nth-child(2) { left: 50%; margin-left: -30px; bottom: 55px; }
+        .flower-with-stem:nth-child(3) { left: 50%; margin-left: 0px; bottom: 58px; }
+        .flower-with-stem:nth-child(4) { left: 50%; margin-left: 30px; bottom: 52px; }
+        .flower-with-stem:nth-child(5) { left: 50%; margin-left: 60px; bottom: 50px; }
+        .flower-with-stem:nth-child(6) { left: 50%; margin-left: -45px; bottom: 65px; }
+        .flower-with-stem:nth-child(7) { left: 50%; margin-left: 45px; bottom: 48px; }
         
         /* Alturas de los tallos */
-        .flower-with-stem:nth-child(1) .stem { --stem-height: 180px; animation-delay: 0.5s; }
-        .flower-with-stem:nth-child(2) .stem { --stem-height: 175px; animation-delay: 1.0s; }
-        .flower-with-stem:nth-child(3) .stem { --stem-height: 178px; animation-delay: 1.5s; }
-        .flower-with-stem:nth-child(4) .stem { --stem-height: 172px; animation-delay: 2.0s; }
-        .flower-with-stem:nth-child(5) .stem { --stem-height: 170px; animation-delay: 2.5s; }
-        .flower-with-stem:nth-child(6) .stem { --stem-height: 185px; animation-delay: 3.0s; }
-        .flower-with-stem:nth-child(7) .stem { --stem-height: 168px; animation-delay: 3.5s; }
-        .flower-with-stem:nth-child(8) .stem { --stem-height: 178px; animation-delay: 4.0s; }
-        .flower-with-stem:nth-child(9) .stem { --stem-height: 175px; animation-delay: 4.5s; }
+        .flower-with-stem:nth-child(1) .stem { --stem-height: 150px; animation-delay: 0.3s; }
+        .flower-with-stem:nth-child(2) .stem { --stem-height: 145px; animation-delay: 0.6s; }
+        .flower-with-stem:nth-child(3) .stem { --stem-height: 148px; animation-delay: 0.9s; }
+        .flower-with-stem:nth-child(4) .stem { --stem-height: 142px; animation-delay: 1.2s; }
+        .flower-with-stem:nth-child(5) .stem { --stem-height: 140px; animation-delay: 1.5s; }
+        .flower-with-stem:nth-child(6) .stem { --stem-height: 155px; animation-delay: 1.8s; }
+        .flower-with-stem:nth-child(7) .stem { --stem-height: 138px; animation-delay: 2.1s; }
         
         /* Flores */
-        .flower-with-stem:nth-child(1) .flower { animation-delay: 0.8s; }
-        .flower-with-stem:nth-child(2) .flower { animation-delay: 1.3s; }
-        .flower-with-stem:nth-child(3) .flower { animation-delay: 1.8s; }
-        .flower-with-stem:nth-child(4) .flower { animation-delay: 2.3s; }
-        .flower-with-stem:nth-child(5) .flower { animation-delay: 2.8s; }
-        .flower-with-stem:nth-child(6) .flower { animation-delay: 3.3s; }
-        .flower-with-stem:nth-child(7) .flower { animation-delay: 3.8s; }
-        .flower-with-stem:nth-child(8) .flower { animation-delay: 4.3s; }
-        .flower-with-stem:nth-child(9) .flower { animation-delay: 4.8s; }
+        .flower-with-stem:nth-child(1) .flower { animation-delay: 0.5s; }
+        .flower-with-stem:nth-child(2) .flower { animation-delay: 0.8s; }
+        .flower-with-stem:nth-child(3) .flower { animation-delay: 1.1s; }
+        .flower-with-stem:nth-child(4) .flower { animation-delay: 1.4s; }
+        .flower-with-stem:nth-child(5) .flower { animation-delay: 1.7s; }
+        .flower-with-stem:nth-child(6) .flower { animation-delay: 2.0s; }
+        .flower-with-stem:nth-child(7) .flower { animation-delay: 2.3s; }
         
-        /* Hojas - posición estratégica */
+        /* Hojas */
         .leaf:nth-child(1) { 
-            bottom: 120px; left: -15px; transform: rotate(45deg);
-            animation-delay: 1.2s; 
+            bottom: 100px; left: -12px; transform: rotate(45deg);
+            animation-delay: 0.9s; 
         }
         .leaf:nth-child(2) { 
-            bottom: 100px; left: 10px; transform: rotate(-30deg);
-            animation-delay: 2.0s; 
+            bottom: 80px; left: 8px; transform: rotate(-30deg);
+            animation-delay: 1.4s; 
         }
         .leaf:nth-child(3) { 
-            bottom: 130px; left: -25px; transform: rotate(60deg);
-            animation-delay: 2.8s; 
+            bottom: 110px; left: -20px; transform: rotate(60deg);
+            animation-delay: 1.9s; 
         }
         .leaf:nth-child(4) { 
-            bottom: 90px; left: 15px; transform: rotate(-45deg);
-            animation-delay: 3.6s; 
-        }
-        .leaf:nth-child(5) { 
-            bottom: 110px; left: -20px; transform: rotate(30deg);
-            animation-delay: 4.4s; 
+            bottom: 70px; left: 12px; transform: rotate(-45deg);
+            animation-delay: 2.4s; 
         }
         
         /* Envoltura del ramo */
         .wrapping {
             position: absolute;
-            bottom: 50px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
-            width: 240px;
-            height: 90px;
+            width: 180px;
+            height: 70px;
             background: linear-gradient(to bottom, #8BC34A, #4CAF50);
-            border-radius: 12px 12px 8px 8px;
+            border-radius: 10px 10px 6px 6px;
             z-index: 4;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
             opacity: 0;
-            animation: wrapAppear 2s forwards;
-            animation-delay: 5.5s;
+            animation: wrapAppear 1s forwards;
+            animation-delay: 2.8s;
         }
         
         @keyframes wrapAppear {
@@ -192,46 +177,46 @@
         /* Cinta decorativa */
         .ribbon {
             position: absolute;
-            bottom: 120px;
+            bottom: 90px;
             left: 50%;
             transform: translateX(-50%);
-            width: 140px;
-            height: 40px;
+            width: 100px;
+            height: 30px;
             background: linear-gradient(to right, #F44336, #E91E63);
-            border-radius: 6px;
+            border-radius: 5px;
             z-index: 15;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 1.1rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
             opacity: 0;
-            animation: ribbonAppear 2s forwards;
-            animation-delay: 6.0s;
+            animation: ribbonAppear 1s forwards;
+            animation-delay: 3.1s;
         }
         
         @keyframes ribbonAppear {
             to { opacity: 1; }
         }
         
-        /* Dedicatoria especial con frase bonita */
+        /* Dedicatoria especial */
         .dedication {
-            margin-top: 30px;
-            padding: 25px;
+            margin-top: 20px;
+            padding: 15px;
             background: rgba(255, 215, 0, 0.1);
-            border-radius: 15px;
+            border-radius: 12px;
             border: 2px solid rgba(255, 215, 0, 0.3);
             opacity: 0;
-            animation: textAppear 2.5s forwards;
-            animation-delay: 6.5s;
+            animation: textAppear 1.5s forwards;
+            animation-delay: 3.5s;
         }
         
         .dedication-text {
-            font-size: 1.4rem;
+            font-size: 1rem;
             color: #FFD700;
-            line-height: 1.6;
+            line-height: 1.4;
             text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
             font-style: italic;
         }
@@ -253,24 +238,16 @@
         
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
+            width: 3px;
+            height: 3px;
             background: #FFD700;
             border-radius: 50%;
             animation: particleFloat linear infinite;
-            opacity: 0.7;
+            opacity: 0.6;
         }
         
         @keyframes particleFloat {
             to { transform: translateY(-100vh); }
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .title { font-size: 2.2rem; }
-            .bouquet-container { transform: scale(0.85); }
-            .dedication-text { font-size: 1.2rem; }
-            .flower { font-size: 2.8rem; }
         }
     </style>
 </head>
@@ -317,16 +294,6 @@
                 <div class="stem"></div>
                 <div class="leaf"></div>
             </div>
-            <div class="flower-with-stem">
-                <div class="flower">🌻</div>
-                <div class="stem"></div>
-                <div class="leaf"></div>
-            </div>
-            <div class="flower-with-stem">
-                <div class="flower">🌻</div>
-                <div class="stem"></div>
-                <div class="leaf"></div>
-            </div>
             
             <div class="wrapping"></div>
             <div class="ribbon">Para Ti</div>
@@ -334,10 +301,10 @@
         
         <div class="dedication">
             <p class="dedication-text">
-                "Las flores amarillas son el lenguaje secreto del corazón,<br>
-                que habla de amistad, admiración y cariño sincero.<br>
-                En este 21 de septiembre, que cada pétalo te recuerde<br> 
-                lo especial que eres y la luz que brings a mi vida."
+                "Las flores amarillas son mensajes del corazón,<br>
+                que hablan de amistad y cariño sincero.<br>
+                En este día especial, que cada pétalo te recuerde<br> 
+                lo especial que eres."
             </p>
         </div>
     </div>
@@ -346,25 +313,25 @@
         // Crear partículas de fondo
         function createParticles() {
             const particles = document.getElementById('particles');
-            const particleCount = 30;
+            const particleCount = 25;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
                 const posX = Math.random() * 100;
-                const posY = Math.random() * 100 + 100;
+                const posY = Math.random() * 100;
                 particle.style.left = `${posX}%`;
                 particle.style.top = `${posY}%`;
                 
-                const size = Math.random() * 3 + 2;
+                const size = Math.random() * 2 + 2;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
-                const duration = Math.random() * 15 + 10;
+                const duration = Math.random() * 10 + 8;
                 particle.style.animationDuration = `${duration}s`;
                 
-                const delay = Math.random() * 5;
+                const delay = Math.random() * 3;
                 particle.style.animationDelay = `${delay}s`;
                 
                 particles.appendChild(particle);
