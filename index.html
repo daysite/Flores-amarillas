@@ -219,7 +219,7 @@
             to { opacity: 1; }
         }
         
-        /* Dedicatoria especial */
+        /* Dedicatoria especial - Texto más pequeño */
         .dedication {
             margin-top: 30px;
             padding: 15px;
@@ -229,14 +229,16 @@
             opacity: 0;
             animation: textAppear 1.5s forwards;
             animation-delay: 3.8s;
+            max-width: 100%;
         }
         
         .dedication-text {
-            font-size: 1rem;
+            font-size: 0.9rem; /* Texto más pequeño */
             color: #FFD700;
             line-height: 1.4;
             text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
             font-style: italic;
+            margin: 0;
         }
         
         @keyframes textAppear {
@@ -331,10 +333,58 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
+
+        /* Loader para la música */
+        .music-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 46, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+        
+        .music-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader-content {
+            text-align: center;
+            color: #FFD700;
+        }
+        
+        .loader-spinner {
+            border: 5px solid rgba(255, 215, 0, 0.3);
+            border-top: 5px solid #FFD700;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Loader para la música -->
+    <div class="music-loader" id="musicLoader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>Cargando música...</p>
+        </div>
+    </div>
+
     <div class="particles" id="particles"></div>
     
     <!-- Nota musical flotante -->
@@ -451,8 +501,10 @@
         </div>
     </div>
 
-    <!-- Reproductor de audio oculto pero funcional -->
-    <iframe id="audioPlayer" style="display:none;" src="https://www.youtube.com/embed/S7gMzYqXIZc?autoplay=1&loop=1&playlist=S7gMzYqXIZc&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <!-- Audio directo para reproducción inmediata -->
+    <audio id="backgroundMusic" loop style="display: none;">
+        <source src="https://audio.jukehost.co.uk/4t1h2Q3q7Q3YwU0f3i8W8Q2f9G8k8U8A" type="audio/mpeg">
+    </audio>
 
     <script>
         // Crear partículas de fondo
@@ -486,30 +538,53 @@
         // Control de música
         const musicControl = document.getElementById('musicControl');
         const musicIcon = document.getElementById('musicIcon');
-        const audioPlayer = document.getElementById('audioPlayer');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const musicLoader = document.getElementById('musicLoader');
         let musicPlaying = true;
         
+        // Reproducir música inmediatamente
+        function playMusic() {
+            backgroundMusic.play().then(() => {
+                // Ocultar loader cuando la música comience
+                setTimeout(() => {
+                    musicLoader.classList.add('hidden');
+                }, 1000);
+            }).catch(error => {
+                console.log('Error al reproducir música:', error);
+                musicLoader.classList.add('hidden');
+            });
+        }
+        
+        // Control de música
         musicControl.addEventListener('click', function() {
             if (musicPlaying) {
-                // Pausar música
-                audioPlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                backgroundMusic.pause();
                 musicIcon.classList.remove('fa-pause');
                 musicIcon.classList.add('fa-play');
             } else {
-                // Reproducir música
-                audioPlayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                backgroundMusic.play();
                 musicIcon.classList.remove('fa-play');
                 musicIcon.classList.add('fa-pause');
             }
             musicPlaying = !musicPlaying;
         });
         
-        // Inicializar efectos
-        window.addEventListener('load', createParticles);
+        // Inicializar efectos y música
+        window.addEventListener('load', function() {
+            createParticles();
+            
+            // Reproducir música inmediatamente
+            setTimeout(playMusic, 500);
+        });
         
-        // Forzar la reproducción automática
-        window.addEventListener('click', function() {
-            audioPlayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        // Forzar la reproducción con un clic en cualquier parte
+        document.body.addEventListener('click', function() {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+                musicPlaying = true;
+                musicIcon.classList.remove('fa-play');
+                musicIcon.classList.add('fa-pause');
+            }
         }, { once: true });
     </script>
 </body>
