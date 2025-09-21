@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramo de Girasoles - 21 de Septiembre</title>
+    <title>Feliz 21 de Septiembre</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +12,7 @@
         }
         
         body {
-            background: linear-gradient(to bottom, #1a1a2e, #0f3460);
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -26,23 +26,28 @@
             text-align: center;
             position: relative;
             z-index: 20;
-            padding: 20px;
             width: 100%;
+            max-width: 500px;
+            padding: 20px;
+        }
+        
+        .header {
+            margin-bottom: 30px;
         }
         
         .title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: #FFD700;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
             font-weight: bold;
         }
         
         .bouquet-container {
             position: relative;
-            width: 400px;
-            height: 500px;
-            margin: 0 auto;
+            width: 380px;
+            height: 480px;
+            margin: 0 auto 20px;
         }
         
         /* Tallos */
@@ -54,7 +59,7 @@
             background: linear-gradient(to top, #2e7d32, #1b5e20);
             border-radius: 3px;
             transform-origin: bottom center;
-            animation: growStem 1.2s forwards;
+            animation: growStem 1.5s forwards;
             opacity: 0;
             z-index: 5;
         }
@@ -65,12 +70,12 @@
             }
         }
         
-        /* Flores - Girasoles */
+        /* Flores */
         .flower {
             position: absolute;
             font-size: 0;
             color: #FFD700;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+            filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.9));
             opacity: 0;
             animation: growFlower 1.2s forwards;
             z-index: 10;
@@ -79,52 +84,52 @@
         
         @keyframes growFlower {
             to {
-                font-size: 4rem;
+                font-size: 4.2rem;
                 opacity: 1;
             }
         }
         
-        /* Posiciones y alturas de los tallos (formando ramo circular) */
-        .stem:nth-child(1), .flower:nth-child(1) { left: 170px; height: 200px; animation-delay: 0.3s; }
-        .stem:nth-child(2), .flower:nth-child(2) { left: 140px; height: 190px; animation-delay: 0.6s; }
-        .stem:nth-child(3), .flower:nth-child(3) { left: 200px; height: 195px; animation-delay: 0.9s; }
-        .stem:nth-child(4), .flower:nth-child(4) { left: 120px; height: 185px; animation-delay: 1.2s; }
-        .stem:nth-child(5), .flower:nth-child(5) { left: 220px; height: 180px; animation-delay: 1.5s; }
-        .stem:nth-child(6), .flower:nth-child(6) { left: 100px; height: 205px; animation-delay: 1.8s; }
-        .stem:nth-child(7), .flower:nth-child(7) { left: 240px; height: 175px; animation-delay: 2.1s; }
-        .stem:nth-child(8), .flower:nth-child(8) { left: 160px; height: 195px; animation-delay: 2.4s; }
-        .stem:nth-child(9), .flower:nth-child(9) { left: 180px; height: 190px; animation-delay: 2.7s; }
-        .stem:nth-child(10), .flower:nth-child(10) { left: 130px; height: 185px; animation-delay: 3.0s; }
-        .stem:nth-child(11), .flower:nth-child(11) { left: 210px; height: 200px; animation-delay: 3.3s; }
+        /* Posiciones exactas como en la imagen - formación circular */
+        .stem:nth-child(1), .flower:nth-child(1) { left: 180px; height: 210px; animation-delay: 0.2s; }
+        .stem:nth-child(2), .flower:nth-child(2) { left: 150px; height: 200px; animation-delay: 0.4s; }
+        .stem:nth-child(3), .flower:nth-child(3) { left: 210px; height: 205px; animation-delay: 0.6s; }
+        .stem:nth-child(4), .flower:nth-child(4) { left: 130px; height: 195px; animation-delay: 0.8s; }
+        .stem:nth-child(5), .flower:nth-child(5) { left: 230px; height: 190px; animation-delay: 1.0s; }
+        .stem:nth-child(6), .flower:nth-child(6) { left: 110px; height: 215px; animation-delay: 1.2s; }
+        .stem:nth-child(7), .flower:nth-child(7) { left: 250px; height: 185px; animation-delay: 1.4s; }
+        .stem:nth-child(8), .flower:nth-child(8) { left: 170px; height: 205px; animation-delay: 1.6s; }
+        .stem:nth-child(9), .flower:nth-child(9) { left: 190px; height: 200px; animation-delay: 1.8s; }
+        .stem:nth-child(10), .flower:nth-child(10) { left: 140px; height: 195px; animation-delay: 2.0s; }
+        .stem:nth-child(11), .flower:nth-child(11) { left: 220px; height: 210px; animation-delay: 2.2s; }
         
         /* Posiciones verticales de las flores */
-        .flower:nth-child(1) { bottom: 280px; }
-        .flower:nth-child(2) { bottom: 270px; }
-        .flower:nth-child(3) { bottom: 275px; }
-        .flower:nth-child(4) { bottom: 265px; }
-        .flower:nth-child(5) { bottom: 260px; }
-        .flower:nth-child(6) { bottom: 285px; }
-        .flower:nth-child(7) { bottom: 255px; }
-        .flower:nth-child(8) { bottom: 275px; }
-        .flower:nth-child(9) { bottom: 270px; }
-        .flower:nth-child(10) { bottom: 265px; }
-        .flower:nth-child(11) { bottom: 280px; }
+        .flower:nth-child(1) { bottom: 290px; }
+        .flower:nth-child(2) { bottom: 280px; }
+        .flower:nth-child(3) { bottom: 285px; }
+        .flower:nth-child(4) { bottom: 275px; }
+        .flower:nth-child(5) { bottom: 270px; }
+        .flower:nth-child(6) { bottom: 295px; }
+        .flower:nth-child(7) { bottom: 265px; }
+        .flower:nth-child(8) { bottom: 285px; }
+        .flower:nth-child(9) { bottom: 280px; }
+        .flower:nth-child(10) { bottom: 275px; }
+        .flower:nth-child(11) { bottom: 290px; }
         
         /* Envoltura del ramo */
         .wrapping {
             position: absolute;
-            bottom: 60px;
+            bottom: 70px;
             left: 50%;
             transform: translateX(-50%);
-            width: 180px;
-            height: 80px;
+            width: 200px;
+            height: 90px;
             background: linear-gradient(to bottom, #8BC34A, #4CAF50);
-            border-radius: 10px 10px 6px 6px;
+            border-radius: 12px 12px 8px 8px;
             z-index: 4;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
             opacity: 0;
             animation: wrapAppear 1s forwards;
-            animation-delay: 4.0s;
+            animation-delay: 3.0s;
         }
         
         @keyframes wrapAppear {
@@ -136,24 +141,24 @@
         /* Cinta decorativa */
         .ribbon {
             position: absolute;
-            bottom: 120px;
+            bottom: 140px;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 35px;
-            background: linear-gradient(to right, #F44336, #E91E63);
-            border-radius: 5px;
+            width: 140px;
+            height: 40px;
+            background: linear-gradient(45deg, #F44336, #E91E63);
+            border-radius: 6px;
             z-index: 15;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             opacity: 0;
             animation: ribbonAppear 1s forwards;
-            animation-delay: 4.5s;
+            animation-delay: 3.5s;
         }
         
         @keyframes ribbonAppear {
@@ -162,7 +167,20 @@
             }
         }
         
-        /* Efecto de partículas doradas */
+        /* Tiempo como en la imagen */
+        .time-display {
+            margin-top: 25px;
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Courier New', monospace;
+        }
+        
+        .time-display div {
+            margin: 8px 0;
+            letter-spacing: 2px;
+        }
+        
+        /* Efecto de partículas */
         .particles {
             position: fixed;
             top: 0;
@@ -189,21 +207,10 @@
             }
         }
         
-        /* Texto de tiempo (simulando la imagen) */
-        .time {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .time div {
-            margin: 5px 0;
-        }
-        
         /* Responsive */
         @media (max-width: 768px) {
             .title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .bouquet-container {
@@ -211,7 +218,7 @@
             }
             
             .flower {
-                font-size: 3.2rem !important;
+                font-size: 3.5rem !important;
             }
         }
     </style>
@@ -220,7 +227,9 @@
     <div class="particles" id="particles"></div>
     
     <div class="container">
-        <h1 class="title">Feliz 21 de Septiembre</h1>
+        <div class="header">
+            <h1 class="title">Feliz 21 de Septiembre</h1>
+        </div>
         
         <div class="bouquet-container">
             <!-- Tallos y flores -->
@@ -252,7 +261,7 @@
             <div class="ribbon">Para Ti</div>
         </div>
         
-        <div class="time">
+        <div class="time-display">
             <div>0:00</div>
             <div>1:36</div>
         </div>
@@ -262,28 +271,24 @@
         // Crear partículas de fondo
         function createParticles() {
             const particles = document.getElementById('particles');
-            const particleCount = 40;
+            const particleCount = 50;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                // Posición aleatoria
                 const posX = Math.random() * 100;
                 const posY = Math.random() * 100 + 100;
                 particle.style.left = `${posX}%`;
                 particle.style.top = `${posY}%`;
                 
-                // Tamaño aleatorio
                 const size = Math.random() * 3 + 2;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
-                // Duración de animación aleatoria
                 const duration = Math.random() * 10 + 5;
                 particle.style.animationDuration = `${duration}s`;
                 
-                // Retraso aleatorio
                 const delay = Math.random() * 5;
                 particle.style.animationDelay = `${delay}s`;
                 
@@ -291,10 +296,8 @@
             }
         }
         
-        // Inicializar efectos
-        window.addEventListener('load', () => {
-            createParticles();
-        });
+        // Inicializar
+        window.addEventListener('load', createParticles);
     </script>
 </body>
 </html>
